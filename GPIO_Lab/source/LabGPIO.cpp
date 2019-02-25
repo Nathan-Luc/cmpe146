@@ -1,5 +1,3 @@
-
-
 #include "LabGPIO.hpp"
  
   LabGPIO::LabGPIO(uint8_t port, uint8_t pin){
@@ -178,7 +176,6 @@
     case 1: 
         if(LPC_GPIO1->PIN & (1<<SelPin)) return State::kHigh;
         else return State::kLow;
-        
     
     case 2:
         if(LPC_GPIO2->PIN & (1<<SelPin)) return State::kHigh;
@@ -197,7 +194,7 @@
         else return State::kLow;
     }
   }
-    bool LabGPIO::ReadBool(){
+ bool LabGPIO::ReadBool(){
   /// Should return the state of the pin (input or output, doesn't matter)
   ///
   /// @return level of pin high => true, low => false
@@ -216,39 +213,154 @@
         return(LPC_GPIO5->PIN & (1<<SelPin));  
   }
   }
-    void LabGPIO::toggle(){
+ void LabGPIO::toggle(){
 
     switch(SelPort){
     case 0:
         if(!ReadBool()) //reads the current state and if it is not true which means it is SetLow then SetHigh 
             SetHigh(); 
         else SetLow();
-    
+        break;
     case 1:
         if(!ReadBool()) //reads the current state and if it is not true which means it is SetLow then SetHigh 
             SetHigh(); 
         else SetLow();
-    
+        break;
     case 2:
         if(!ReadBool()) //reads the current state and if it is not true which means it is SetLow then SetHigh 
             SetHigh(); 
         else SetLow();
-    
+        break;
     case 3:
         if(!ReadBool()) //reads the current state and if it is not true which means it is SetLow then SetHigh 
             SetHigh(); 
         else SetLow();
-    
+        break;
     case 4:
         if(!ReadBool()) //reads the current state and if it is not true which means it is SetLow then SetHigh 
             SetHigh(); 
         else SetLow();
-    
+        break;
     case 5:
         if(!ReadBool()) //reads the current state and if it is not true which means it is SetLow then SetHigh 
             SetHigh(); 
         else SetLow();
+        break;
     }
   }
+  void LabGPIO::setPulldown(){
+   switch(SelPort){
+   case 0:
+    if(SelPin == 29)
+   {   
+       LPC_IOCON->P0_29 &= ~(0b11<<3);
+       LPC_IOCON->P0_29 |= (0b1<<3);
+   }
+   else if ( SelPin == 30)
+   {
+       LPC_IOCON->P0_30 &= ~(0b11<<3);
+       LPC_IOCON->P0_30 |= (0b1<<3);
+   }
+     //fall through
+   case 1:   
+   if(SelPin == 19)
+   {   
+       LPC_IOCON->P1_19 &= ~(0b11<<3);
+       LPC_IOCON->P1_19 |= (0b1<<3);
+   }
+   else if ( SelPin == 15)
+   {
+       LPC_IOCON->P1_15 &= ~(0b11<<3);
+       LPC_IOCON->P1_15 |= (0b1<<3);
+   }
   
-   
+   }
+  }
+void LabGPIO::setPullup(){
+   switch(SelPort){
+   case 0:
+    if(SelPin == 29)
+   {   
+       LPC_IOCON->P0_29 &= ~(0b11<<3);
+       LPC_IOCON->P0_29 |= (0b1<<4);
+   }
+   else if ( SelPin == 30)
+   {
+       LPC_IOCON->P0_30 &= ~(0b11<<3);
+       LPC_IOCON->P0_30 |= (0b1<<4);
+   }
+     //fall through
+   case 1:   
+   if(SelPin == 19)
+   {   
+       LPC_IOCON->P1_19 &= ~(0b11<<3);
+       LPC_IOCON->P1_19 |= (0b1<<4);
+   }
+   else if ( SelPin == 15)
+   {
+       LPC_IOCON->P1_15 &= ~(0b11<<3);
+       LPC_IOCON->P1_15 |= (0b1<<4);
+   }
+  
+   }
+  }
+   void LabGPIO::setInactive(){
+   switch(SelPort){
+   case 0:
+    if(SelPin == 29)
+   {   
+       LPC_IOCON->P0_29 &= ~(0b11<<3);
+
+   }
+   else if ( SelPin == 30)
+   {
+       LPC_IOCON->P0_30 &= ~(0b11<<3);
+     
+   }
+   //fall through
+   case 1:   
+   if(SelPin == 19)
+   {   
+       LPC_IOCON->P1_19 &= ~(0b11<<3);
+       
+   }
+   else if ( SelPin == 15)
+   {
+       LPC_IOCON->P1_15 &= ~(0b11<<3);
+       
+   }
+  
+   }
+  }
+   void LabGPIO::setRepeater(){
+   switch(SelPort){
+   case 0:
+    if(SelPin == 29)
+   {   
+       LPC_IOCON->P0_29 &= ~(0b11<<3);
+       LPC_IOCON->P0_29 |=  (0b11<<3);
+
+   }
+   else if ( SelPin == 30)
+   {
+       LPC_IOCON->P0_30 &= ~(0b11<<3);
+       LPC_IOCON->P0_30 |=  (0b11<<3);
+     
+   }
+     //fall through
+   case 1:   
+   if(SelPin == 19)
+   {   
+       LPC_IOCON->P1_19 &= ~(0b11<<3);
+       LPC_IOCON->P1_19 |=  (0b11<<3);
+       
+   }
+   else if ( SelPin == 15)
+   {
+       LPC_IOCON->P1_15 &= ~(0b11<<3);
+       LPC_IOCON->P1_15 |=  (0b11<<3);
+       
+   }
+    
+   }
+  }

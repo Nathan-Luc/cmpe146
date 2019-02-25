@@ -1,10 +1,10 @@
 #pragma once 
-
+#include "pinconn.hpp"
 #include <cstdint>
 #include "L0_LowLevel/LPC40xx.h"
-#include "pinconn.hpp"
-#include "utility/log.hpp"
-#include "utility/time.hpp"
+
+
+
 class LabGPIO
 {
  public:
@@ -49,6 +49,10 @@ class LabGPIO
   /// @return level of pin high => true, low => false
   bool ReadBool();
   void toggle();
+  void setPulldown();
+  void setPullup();
+  void setInactive();
+  void setRepeater();
  private:
     uint8_t SelPort;
     uint8_t SelPin;

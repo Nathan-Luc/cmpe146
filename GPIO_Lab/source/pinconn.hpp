@@ -1,13 +1,16 @@
 #pragma once
 
-#include <cstdio>
-
+#include <cstdint>
 #include "L0_LowLevel/LPC40xx.h"
 
 
+
 class pinconn
-{   void inactive(uint8_t port, uint8_t pin);
-    void pullup(uint8_t port, uint8_t pin);
-    void pulldown(uint8_t port, uint8_t pin);
-    void repeater(uint8_t port, uint8_t pin);
-}
+{  
+public:
+    void pc_inactive(uint8_t port, uint8_t pin);
+    void pc_pullup(uint8_t port, uint8_t pin);
+    void pc_pulldown(uint8_t port, uint8_t pin);
+    void pc_repeater(uint8_t port, uint8_t pin);
+    
+};

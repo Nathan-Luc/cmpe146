@@ -11,7 +11,7 @@ build/application/compiled/source/main.cpp.o: source/main.cpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/macros.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/time.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/status.hpp \
- source/LabGPIO.hpp
+ source/LabGPIO.hpp source/pinconn.hpp
 
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/LPC40xx.h:
 
@@ -38,3 +38,5 @@ build/application/compiled/source/main.cpp.o: source/main.cpp \
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/status.hpp:
 
 source/LabGPIO.hpp:
+
+source/pinconn.hpp:

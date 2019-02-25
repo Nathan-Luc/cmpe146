@@ -9,9 +9,84 @@
 #include "utility/log.hpp"
 #include "utility/time.hpp"
 #include "LabGPIO.hpp"
+  LabGPIO button3(0, 29);
+  LabGPIO led3(1, 18);
+  
+  LabGPIO button2(0, 30);
+  LabGPIO led2(1, 24);
+  
+  LabGPIO button1(1, 15);
+  LabGPIO led1(1, 26);
+  
+  LabGPIO button0(1, 19);
+  LabGPIO led0(2, 3);
+void Part0();
+void DB0();
+void DB1();
+void DB2();
+void DB3();
+
 int main() 
 {
-  /*Lab 0
+  LOG_INFO("Start");
+  /*Lab3*/
+ 
+ 
+        button0.setPulldown();
+        button1.setPulldown();
+  // Initialize button and led here
+
+  while(true)
+  {    
+     if(button0.ReadBool()){
+         //LOG_INFO("Button 0 pressed!");
+         Delay(10);
+         if(button0.ReadBool() != true)
+       {
+          
+         led0.toggle();
+       }           
+       }
+          
+       
+       if(button1.ReadBool()){
+          // LOG_INFO("Button 1 pressed!");      
+          Delay(10);
+         if(button1.ReadBool() != true)
+       {
+          
+            led1.toggle();
+       }           
+       }
+       if(button2.ReadBool()){
+               // LOG_INFO("Button 2 pressed!");
+               Delay(10);
+         if(button2.ReadBool() != true)
+       {
+           
+            led2.toggle();
+       }           
+       }
+       if(button3.ReadBool()){
+          //LOG_INFO("Button 3 pressed!");
+          Delay(10);
+         if(button3.ReadBool() != true)
+       {
+           
+            led3.toggle();
+       }           
+       }
+      
+      
+      
+    // Logic to read if button has been RELEASED and if so, TOGGLE LED state;
+  }
+  return 0;
+     
+}
+void Part0()
+{
+   // Lab 0
   // 1) Find and choose an onboard LED to manipluate.
   // 2) Use the schematic to figure out which pin it is connected to
   // 3) Use FIODIR to set that pin as an output
@@ -28,36 +103,31 @@ int main()
     LOG_INFO("Turning LED OFF!");
     Delay(500);
   }
-  return 0;
-  */
-  
-  /*Lab3*/
-  LabGPIO button3(0, 29);
-  LabGPIO led3(1, 18);
-  
-  LabGPIO button2(0, 30);
-  LabGPIO led2(1, 24);
-  
-  LabGPIO button1(1, 15);
-  LabGPIO led1(1, 26);
-  
-  LabGPIO button0(1, 19);
-  LabGPIO led0(2, 3);
-  int count=0;
-  // Initialize button and led here
 
-  while(true)
-  {
-       if(button3.ReadBool()){
+ 
+  
+}
+ void DB0(){
+   
+      
+ }
+ void DB1(){
+     
+       button1.setPulldown(); 
+       if(button1.ReadBool()){
         
-         if(button3.ReadBool() != true)
+         if(button1.ReadBool() != true)
        {
-            led3.toggle();
+           
+            led1.toggle();
        }           
        }
-     
-    // Logic to read if button has been RELEASED and if so, TOGGLE LED state;
-  }
-  return 0;
-     
-}
+ }
+ void DB2(){
+   
+  
+ }
+ void DB3(){
+   
+      
+ }
