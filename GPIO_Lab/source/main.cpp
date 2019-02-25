@@ -9,6 +9,7 @@
 #include "utility/log.hpp"
 #include "utility/time.hpp"
 #include "LabGPIO.hpp"
+   // Initialize button and led here
   LabGPIO button3(0, 29);
   LabGPIO led3(1, 18);
   
@@ -20,7 +21,14 @@
   
   LabGPIO button0(1, 19);
   LabGPIO led0(2, 3);
-  
+ 
+  //variables to reach EC
+  int CB0=0;
+  int CB1=0;
+  int CB2=0;
+  int CB3=0;
+ 
+  // variables for EC
   int increment =0;
   int count=0;
   int word_count=1;
@@ -29,32 +37,35 @@
   char translated[100]={};
   OledTerminal oled_terminal;
 
-void Part0();
+void Part0(); 
 void DemoButton();
-void EC();
-void morse_translate();
+void EC(); // morse code translator
+void morse_translate(); // translate dots and dashes to alphabet
 
 int main() 
-{
+{ 
   LOG_INFO("Start");
-  /*Lab3*/
- 
- 
-        button0.setPulldown();
-        button1.setPulldown();
-  // Initialize button and led here
+  oled_terminal.Initialize();
+  button0.setPulldown();
+  button1.setPulldown();
+  bool change =true;
 
   while(true)
   {    
-     
-        DemoButton();
+    if(change){ 
     // Logic to read if button has been RELEASED and if so, TOGGLE LED state;
+      DemoButton();
+    }
+    if(CB0 == 1 && CB1 ==5 && CB2%4 ==0 && CB3 ==5)
+    {   change=false;
+          EC();
+    }
+    
   }
   return 0;
      
 }
-void Part0()
-{
+void Part0(){
    // Lab 0
   // 1) Find and choose an onboard LED to manipluate.
   // 2) Use the schematic to figure out which pin it is connected to
@@ -72,52 +83,55 @@ void Part0()
     LOG_INFO("Turning LED OFF!");
     Delay(500);
   }
-
- 
-  
 }
- void DemoButton(){
-   if(button0.ReadBool()){
-        
-         Delay(10);
-         if(button0.ReadBool() != true)
+void DemoButton()
+{
+   if(button0.ReadBool())
+   {    
+      Delay(10); //debounce
+       if(button0.ReadBool() != true)
        {
-         LOG_INFO("Button 0 pressed!");
-         led0.toggle();
+        LOG_INFO("Button 0 pressed!");
+        led0.toggle();
+        CB0++;
        }           
-       }
-          
-       
-       if(button1.ReadBool()){
-             
-          Delay(10);
-         if(button1.ReadBool() != true)
-       {
-             LOG_INFO("Button 1 pressed!"); 
-            led1.toggle();
-       }           
-       }
-       if(button2.ReadBool()){
-            
-               Delay(10);
-         if(button2.ReadBool() != true)
-       {
-             LOG_INFO("Button 2 pressed!");
-            led2.toggle();
-       }           
-       }
-       if(button3.ReadBool()){
-          
-          Delay(10);
-         if(button3.ReadBool() != true)
-       {
-           LOG_INFO("Button 3 pressed!");
-            led3.toggle();
-       }           
-       }
-  }
+   }
   
-  void EC(){
+   if(button1.ReadBool())
+   {     
+      Delay(10); //debounce
+       if(button1.ReadBool() != true)
+       {
+        LOG_INFO("Button 1 pressed!"); 
+        led1.toggle();
+        CB1++;
+       }           
+   }
+       
+   if(button2.ReadBool())
+   {        
+      Delay(10); //debounce
+       if(button2.ReadBool() != true)
+       {
+        LOG_INFO("Button 2 pressed!");
+        led2.toggle();
+        CB2++;
+       }           
+   }
+   if(button3.ReadBool())
+   {     
+      Delay(10); //debounce
+       if(button3.ReadBool() != true)
+       {
+        LOG_INFO("Button 3 pressed!");
+        led3.toggle();
+        CB3++;
+       }           
+     
+   }
+}
+  
+void EC(){
       translated[0]='?';
         morse[0]='?';
       if(button3.ReadBool()){
@@ -231,7 +245,7 @@ if(morse[increment] =='|')
         translated[translated_count]='m';
         translated_count++;
         }
-        if((morse[increment-3] =='&' || morse[increment-3] == '|' || morse[increment-3] == '?') && morse[increment-2] =='.' && morse[increment-1] == '-' && morse[increment] == '&'){
+        if((morse[increment-3] =='&' || morse[increment-3] == '|' || morse[increment-3] == '?') && morse[increment-2] =='-' && morse[increment-1] == '.' && morse[increment] == '&'){
         translated[translated_count]='n';
         translated_count++;
         }
