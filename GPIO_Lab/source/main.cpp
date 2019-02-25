@@ -4,7 +4,7 @@
 
 #include <cstdint>
 #include <iterator>
-
+#include "L3_Application/oled_terminal.hpp"
 
 #include "utility/log.hpp"
 #include "utility/time.hpp"
@@ -20,11 +20,19 @@
   
   LabGPIO button0(1, 19);
   LabGPIO led0(2, 3);
+  
+  int increment =0;
+  int count=0;
+  int word_count=1;
+  int translated_count=1;
+  char morse[1000]= {};
+  char translated[100]={};
+  OledTerminal oled_terminal;
+
 void Part0();
-void DB0();
-void DB1();
-void DB2();
-void DB3();
+void DemoButton();
+void EC();
+void morse_translate();
 
 int main() 
 {
@@ -38,47 +46,8 @@ int main()
 
   while(true)
   {    
-     if(button0.ReadBool()){
-         //LOG_INFO("Button 0 pressed!");
-         Delay(10);
-         if(button0.ReadBool() != true)
-       {
-          
-         led0.toggle();
-       }           
-       }
-          
-       
-       if(button1.ReadBool()){
-          // LOG_INFO("Button 1 pressed!");      
-          Delay(10);
-         if(button1.ReadBool() != true)
-       {
-          
-            led1.toggle();
-       }           
-       }
-       if(button2.ReadBool()){
-               // LOG_INFO("Button 2 pressed!");
-               Delay(10);
-         if(button2.ReadBool() != true)
-       {
-           
-            led2.toggle();
-       }           
-       }
-       if(button3.ReadBool()){
-          //LOG_INFO("Button 3 pressed!");
-          Delay(10);
-         if(button3.ReadBool() != true)
-       {
-           
-            led3.toggle();
-       }           
-       }
-      
-      
-      
+     
+        DemoButton();
     // Logic to read if button has been RELEASED and if so, TOGGLE LED state;
   }
   return 0;
@@ -107,27 +76,213 @@ void Part0()
  
   
 }
- void DB0(){
-   
-      
- }
- void DB1(){
-     
-       button1.setPulldown(); 
-       if(button1.ReadBool()){
+ void DemoButton(){
+   if(button0.ReadBool()){
         
+         Delay(10);
+         if(button0.ReadBool() != true)
+       {
+         LOG_INFO("Button 0 pressed!");
+         led0.toggle();
+       }           
+       }
+          
+       
+       if(button1.ReadBool()){
+             
+          Delay(10);
          if(button1.ReadBool() != true)
        {
-           
+             LOG_INFO("Button 1 pressed!"); 
             led1.toggle();
        }           
        }
- }
- void DB2(){
-   
+       if(button2.ReadBool()){
+            
+               Delay(10);
+         if(button2.ReadBool() != true)
+       {
+             LOG_INFO("Button 2 pressed!");
+            led2.toggle();
+       }           
+       }
+       if(button3.ReadBool()){
+          
+          Delay(10);
+         if(button3.ReadBool() != true)
+       {
+           LOG_INFO("Button 3 pressed!");
+            led3.toggle();
+       }           
+       }
+  }
   
- }
- void DB3(){
-   
+  void EC(){
+      translated[0]='?';
+        morse[0]='?';
+      if(button3.ReadBool()){
+          Delay(150);
+          count++;
+          if(count>2){
+          oled_terminal.printf("-");
+         
+         morse[word_count]= '-';
+          word_count++;
+           count=-1;
+          }
+          if(button3.ReadBool() != true && (count != 0) && (count != -1))
+          {
+          oled_terminal.printf(".");
+          morse[word_count] = '.';
+          word_count++;
+          count = 0; 
+       
+          }
+      }
+  if(button2.ReadBool())
+  { Delay(10);
+      if(button2.ReadBool() != true){
+    for(increment =1; increment<=word_count; increment++){
+     printf("%c", morse[increment]);
+     morse_translate();
+    }
+    printf("\n");
+    for(increment=1; increment<=translated_count;increment++)
+    {
+        printf("%c", translated[increment]);
+    }
+    
+        oled_terminal.Clear();
+      }
       
- }
+  }
+    if(button1.ReadBool())
+  { Delay(10);
+      if(button1.ReadBool() != true){
+      oled_terminal.printf("&"); 
+      morse[word_count] = '&';
+          word_count++;
+      }
+      
+  }
+  if(button0.ReadBool())
+  { Delay(10);
+      if(button0.ReadBool() != true){
+      oled_terminal.printf("|"); 
+      morse[word_count] = '|';
+          word_count++;
+      }
+      
+  }
+   
+}
+void morse_translate(){
+if(morse[increment] =='|')
+     {
+         translated[translated_count]=' ';
+         translated_count++;
+     }
+    if((morse[increment-3] =='&' || morse[increment-3] == '|' || morse[increment-3] == '?') && morse[increment-2] =='.' && morse[increment-1] == '-' && morse[increment] == '&'){
+        translated[translated_count]='a';
+        translated_count++;
+        }
+     if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='-' && morse[increment-3] == '.' && morse[increment-2] == '.' && morse[increment-1] == '.'  && morse[increment] == '&'){
+        translated[translated_count]='b';
+        translated_count++;
+        }
+      if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='-' && morse[increment-3] == '.' && morse[increment-2] == '-' && morse[increment-1] == '.'  && morse[increment] == '&'){
+        translated[translated_count]='c';
+        translated_count++;
+        }
+       if((morse[increment-4] =='&' || morse[increment-4] == '|' || morse[increment-4] == '?') &&  morse[increment-3] == '-' && morse[increment-2] == '.' && morse[increment-1] == '.'  && morse[increment] == '&'){
+        translated[translated_count]='d';
+        translated_count++;
+        }
+        if((morse[increment-2] =='&' || morse[increment-2] == '?' || morse[increment-2] == '|') && morse[increment-1] =='.'&& morse[increment] =='&')
+        {
+         translated[translated_count]='e';
+         translated_count++;
+        }
+        if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='.' && morse[increment-3] == '.' && morse[increment-2] == '-' && morse[increment-1] == '.'  && morse[increment] == '&'){
+        translated[translated_count]='f';
+        translated_count++;
+        }
+       if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='.' && morse[increment-3] == '.' && morse[increment-2] == '.' && morse[increment-1] == '.'  && morse[increment] == '&'){
+        translated[translated_count]='h';
+        translated_count++;
+        }
+       if((morse[increment-3] =='&' || morse[increment-3] == '|' || morse[increment-3] == '?') && morse[increment-2] =='.' && morse[increment-1] == '.' && morse[increment] == '&'){
+        translated[translated_count]='i';
+        translated_count++;
+        }
+        if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='.' && morse[increment-3] == '-' && morse[increment-2] == '-' && morse[increment-1] == '-'  && morse[increment] == '&'){
+        translated[translated_count]='j';
+        translated_count++;
+        }
+        if( (morse[increment-4] =='&' || morse[increment-4] == '|' || morse[increment-4] == '?') && morse[increment-3] == '-' && morse[increment-2] == '.' && morse[increment-1] == '-'  && morse[increment] == '&'){
+        translated[translated_count]='k';
+        translated_count++;
+        }
+        if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='.' && morse[increment-3] == '-' && morse[increment-2] == '.' && morse[increment-1] == '.'  && morse[increment] == '&'){
+        translated[translated_count]='l';
+        translated_count++;
+        }
+        if((morse[increment-3] =='&' || morse[increment-3] == '|' || morse[increment-3] == '?') && morse[increment-2] =='-' && morse[increment-1] == '-' && morse[increment] == '&'){
+        translated[translated_count]='m';
+        translated_count++;
+        }
+        if((morse[increment-3] =='&' || morse[increment-3] == '|' || morse[increment-3] == '?') && morse[increment-2] =='.' && morse[increment-1] == '-' && morse[increment] == '&'){
+        translated[translated_count]='n';
+        translated_count++;
+        }
+        if((morse[increment-4] =='&' || morse[increment-4] == '|' || morse[increment-4] == '?') && morse[increment-3] == '-' && morse[increment-2] == '-' && morse[increment-1] == '-'  && morse[increment] == '&'){
+        translated[translated_count]='o';
+        translated_count++;
+        }
+           if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='.' && morse[increment-3] == '-' && morse[increment-2] == '-' && morse[increment-1] == '.'  && morse[increment] == '&'){
+        translated[translated_count]='p';
+        translated_count++;
+        }
+          if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='-' && morse[increment-3] == '-' && morse[increment-2] == '.' && morse[increment-1] == '-'  && morse[increment] == '&'){
+        translated[translated_count]='q';
+        translated_count++;
+        }
+         if((morse[increment-4] =='&' || morse[increment-4] == '|' || morse[increment-4] == '?') && morse[increment-3] == '.' && morse[increment-2] == '-' && morse[increment-1] == '.'  && morse[increment] == '&'){
+        translated[translated_count]='r';
+        translated_count++;
+        }
+         if((morse[increment-4] =='&' || morse[increment-4] == '|' || morse[increment-4] == '?') && morse[increment-3] == '.' && morse[increment-2] == '.' && morse[increment-1] == '.'  && morse[increment] == '&'){
+        translated[translated_count]='s';
+        translated_count++;
+        }
+        if((morse[increment-2] =='&' || morse[increment-2] == '?' || morse[increment-2] == '|') && morse[increment-1] =='-'&& morse[increment] =='&')
+        {
+         translated[translated_count]='t';
+         translated_count++;
+        }
+         if((morse[increment-4] =='&' || morse[increment-4] == '|' || morse[increment-4] == '?') && morse[increment-3] == '.' && morse[increment-2] == '.' && morse[increment-1] == '-'  && morse[increment] == '&'){
+        translated[translated_count]='u';
+        translated_count++;
+        }
+            if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='.' && morse[increment-3] == '.' && morse[increment-2] == '.' && morse[increment-1] == '-'  && morse[increment] == '&'){
+        translated[translated_count]='v';
+        translated_count++;
+        }
+         if((morse[increment-4] =='&' || morse[increment-4] == '|' || morse[increment-4] == '?') && morse[increment-3] == '.' && morse[increment-2] == '-' && morse[increment-1] == '-'  && morse[increment] == '&'){
+        translated[translated_count]='w';
+        translated_count++;
+        }
+            if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='-' && morse[increment-3] == '.' && morse[increment-2] == '.' && morse[increment-1] == '-'  && morse[increment] == '&'){
+        translated[translated_count]='x';
+        translated_count++;
+        }
+            if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='-' && morse[increment-3] == '.' && morse[increment-2] == '-' && morse[increment-1] == '-'  && morse[increment] == '&'){
+        translated[translated_count]='y';
+        translated_count++;
+        }
+            if((morse[increment-5] =='&' || morse[increment-5] == '|' || morse[increment-5] == '?') && morse[increment-4] =='-' && morse[increment-3] == '-' && morse[increment-2] == '.' && morse[increment-1] == '.'  && morse[increment] == '&'){
+        translated[translated_count]='z';
+        translated_count++;
+        }
+}
+ 
