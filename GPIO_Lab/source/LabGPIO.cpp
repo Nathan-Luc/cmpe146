@@ -53,7 +53,7 @@
   }
   }
   void LabGPIO::SetDirection(Direction direction){
-      /// Sets this GPIO as an input
+  /// Sets this GPIO as an input
   /// @param output - true => output, false => set pin to input
     switch(SelPort){
   case 0:
@@ -248,7 +248,7 @@
         break;
     }
   }
-  void LabGPIO::setPulldown(){
+  void LabGPIO::setPulldown(){ //this and functions below only work for the 4 switches on the SJ2 board
    switch(SelPort){
    case 0:
     if(SelPin == 29)

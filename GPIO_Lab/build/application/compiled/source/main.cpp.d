@@ -23,7 +23,7 @@ build/application/compiled/source/main.cpp.o: source/main.cpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L2_HAL/displays/pixel_display.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L3_Application/graphics.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/font8x8/font8x8_basic.h \
- source/LabGPIO.hpp source/pinconn.hpp
+ source/LabGPIO.hpp
 
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/LPC40xx.h:
 
@@ -74,5 +74,3 @@ build/application/compiled/source/main.cpp.o: source/main.cpp \
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/font8x8/font8x8_basic.h:
 
 source/LabGPIO.hpp:
-
-source/pinconn.hpp:

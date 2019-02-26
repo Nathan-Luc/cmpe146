@@ -1,5 +1,4 @@
 #pragma once 
-#include "pinconn.hpp"
 #include <cstdint>
 #include "L0_LowLevel/LPC40xx.h"
 
@@ -48,11 +47,11 @@ class LabGPIO
   ///
   /// @return level of pin high => true, low => false
   bool ReadBool();
-  void toggle();
-  void setPulldown();
-  void setPullup();
-  void setInactive();
-  void setRepeater();
+  void toggle(); //toggle LED light
+  void setPulldown();// setPulldown resistors
+  void setPullup(); // setPullup resistors
+  void setInactive(); // make pin inactive resistors
+  void setRepeater(); // set resistor to repeat state
  private:
     uint8_t SelPort;
     uint8_t SelPin;
