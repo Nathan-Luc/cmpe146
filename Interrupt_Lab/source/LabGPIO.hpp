@@ -1,7 +1,7 @@
 #pragma once 
 #include <cstdint>
 #include "L0_LowLevel/LPC40xx.h"
-
+#include "pinconn.hpp"
 
 
 class LabGPIO
@@ -55,6 +55,7 @@ class LabGPIO
  private:
     uint8_t SelPort;
     uint8_t SelPin;
+    pinconn *pc;
   /// port, pin and any other variables should be placed here.
   /// NOTE: Pin state should NEVER be cached! Always check the hardware
   ///       registers for the actual value of the pin.
