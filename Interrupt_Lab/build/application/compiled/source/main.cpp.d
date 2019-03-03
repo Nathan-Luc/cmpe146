@@ -3,11 +3,11 @@ build/application/compiled/source/main.cpp.o: source/main.cpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/Interrupt_Lab/project_config.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/config.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/log_levels.hpp \
+ /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.hpp \
+ /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/macros.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L3_Application/oled_terminal.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L2_HAL/displays/oled/ssd1306.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L1_Drivers/gpio.hpp \
- /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.hpp \
- /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/macros.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L1_Drivers/pin.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/enum.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/log.hpp \
@@ -33,15 +33,15 @@ build/application/compiled/source/main.cpp.o: source/main.cpp \
 
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/log_levels.hpp:
 
+/mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.hpp:
+
+/mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/macros.hpp:
+
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L3_Application/oled_terminal.hpp:
 
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L2_HAL/displays/oled/ssd1306.hpp:
 
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L1_Drivers/gpio.hpp:
-
-/mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.hpp:
-
-/mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/macros.hpp:
 
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L1_Drivers/pin.hpp:
 
