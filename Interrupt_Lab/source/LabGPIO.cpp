@@ -82,10 +82,9 @@
   
   }
  void LabGPIO::toggle(){
-     /*  if(!ReadBool())
+      if(!ReadBool())
            SetHigh();
-       else SetLow();*/
-       ReadBool() ? SetHigh() : SetLow();
+       else SetLow();
    
   }
 void LabGPIO::setPulldown(){ 
@@ -103,7 +102,7 @@ void LabGPIO::setRepeater(){
   }
  void LabGPIO::AttachInterruptHandler(IsrPointer isr, Edge edge){
     pin_isr_map[interrupt_port][SelPin]=isr;
-    printf("%i %i\n",interrupt_port,SelPin);
+    //printf("%i %i\n",interrupt_port,SelPin);
     IntEdge(edge);
   
  }
@@ -113,7 +112,7 @@ void LabGPIO::setRepeater(){
   
     if((LPC_GPIOINT->IO0IntStatR) | (LPC_GPIOINT->IO0IntStatF)){
     selPin_local = __builtin_ctz(LPC_GPIOINT->IO0IntStatR | LPC_GPIOINT->IO0IntStatF);
-    printf("%i\n",selPin_local);
+    //printf("%i\n",selPin_local);
     pin_isr_map[0][selPin_local]();
     LPC_GPIOINT -> IO0IntClr &= ~(1<< selPin_local);
     }
@@ -150,15 +149,15 @@ void LabGPIO::EnableInterrupts(){
     }
  }
  void LabGPIO::setFallingEdge(){
-    *interrupts[interrupt_port][4] |= (1<<SelPin);
+    *interrupts[interrupt_port][4] = (1<<SelPin);
  }
  void LabGPIO::setRisingEdge(){
-    *interrupts[interrupt_port][3] |= (1<<SelPin);
+    *interrupts[interrupt_port][3] = (1<<SelPin);
  }
  void LabGPIO::ClrFallingEdge(){
-    *interrupts[interrupt_port][4] &= ~(1<<SelPin);
+    *interrupts[interrupt_port][4] = (1<<SelPin);
  }
  void LabGPIO::ClrRisingEdge(){
-    *interrupts[interrupt_port][3] &= ~(1<<SelPin);
+    *interrupts[interrupt_port][3] = (1<<SelPin);
  }
  
