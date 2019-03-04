@@ -18,11 +18,13 @@ int main()
   // 1) Setup a GPIO on port 2 as an input
   // 2) Configure the GPIO registers to trigger an interrupt on P2.0 rising edge. 
   // 3) Register your callback for the EINT3
-  LabGPIO Int(0,29);
+  /*LabGPIO Int(0,29);
   Int.SetAsInput();
   LPC_GPIOINT -> IO0IntEnR = (1<<29);
   RegisterIsr(GPIO_IRQn, GpioInterruptCallback);
-  
+  */
+  LabGPIO gpio(2, 3);
+   gpio.EnableInterrupts();
   while(true)
   {    
     

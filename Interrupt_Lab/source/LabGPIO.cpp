@@ -1,6 +1,21 @@
 #include "LabGPIO.hpp"
 
     inline static LPC_GPIO_TypeDef * GPIO[6] = {LPC_GPIO0, LPC_GPIO1, LPC_GPIO2, LPC_GPIO3, LPC_GPIO4, LPC_GPIO5};
+    inline static volatile uint32_t  * interrupts[2][5] =
+     {{
+        &LPC_GPIOINT->IO0IntStatR,
+        &LPC_GPIOINT->IO0IntStatF,
+        &LPC_GPIOINT->IO0IntClr,
+        &LPC_GPIOINT->IO0IntEnR,
+        &LPC_GPIOINT->IO0IntEnF,
+    },
+    {
+        &LPC_GPIOINT->IO2IntStatR,
+        &LPC_GPIOINT->IO2IntStatF,
+        &LPC_GPIOINT->IO2IntClr,
+        &LPC_GPIOINT->IO2IntEnR,
+        &LPC_GPIOINT->IO2IntEnF,
+     }};
     
     
     IsrPointer LabGPIO::pin_isr_map[kPorts][kPins]={ nullptr};
@@ -9,7 +24,8 @@
     SelPort = port;
     SelPin = pin;
     
-  }
+    interrupt_port = (port == 2) ? 1:0;
+ }
   void LabGPIO::SetAsInput(){
   /// Sets this GPIO as an input
   
@@ -86,32 +102,43 @@ void LabGPIO::setRepeater(){
    pc->pc_repeater(SelPort, SelPin);
   }
  void LabGPIO::AttachInterruptHandler(IsrPointer isr, Edge edge){
-     // This handler should place a function pointer within the lookup table for 
-  // the GpioInterruptHandler() to find.
-  //
-  // @param isr  - function to run when the interrupt event occurs.
-  // @param edge - condition for the interrupt to occur on.
-    pin_isr_map[SelPort][SelPin]=isr;
+    pin_isr_map[interrupt_port][SelPin]=isr;
     IntEdge(edge);
   
  }
- void GpioInterruptHandler(){
-   // This function is invoked by NVIC via the GPIO peripheral asynchronously.
-  // This ISR should do the following:
-  //  1) Find the Port and Pin that caused the interrupt via the IO0IntStatF,
-  //     IO0IntStatR, IO2IntStatF, and IO2IntStatR registers.
-  //  2) Lookup and invoke the user's registered callback.
-  //
-  // VERY IMPORTANT!
-  //  - Be sure to clear the interrupt flag that caused this interrupt, or this 
-  //    function will be called repetitively and lock your system.
-  //  - NOTE that your code needs to be able to handle two GPIO interrupts 
-  //    occurring at the same time.
+ void LabGPIO::GpioInterruptHandler(){
+  uint8_t selPin_local;
+  uint8_t i;
   
+  if((LPC_GPIOINT->IO0IntStatF | LPC_GPIOINT->IO0IntStatR)){
+    for( i = 0; i<32; i++)
+    {
+          if(((LPC_GPIOINT -> IO0IntStatF = (1<<i)) | (LPC_GPIOINT -> IO0IntStatR = (1<<i)))==1)
+          {
+              selPin_local = i;
+              break;
+          }
+    }
+    pin_isr_map[0][selPin_local]();
+    LPC_GPIOINT -> IO0IntClr = (1<< selPin_local);
+  }
+    if((LPC_GPIOINT->IO2IntStatF | LPC_GPIOINT->IO2IntStatR) ){
+    for( i = 0; i<32; i++)
+    {
+          if(((LPC_GPIOINT -> IO2IntStatF = (1<<i)) | (LPC_GPIOINT -> IO2IntStatR = (1<<i)))==1)
+          {
+              selPin_local = i;
+              break;
+          }
+    }
+    pin_isr_map[1][selPin_local]();
+    LPC_GPIOINT -> IO2IntClr = (1<< selPin_local);
+  }
  }
+ 
 void LabGPIO::EnableInterrupts(){
   // Register GPIO_IRQn here
-        RegisterIsr(GPIO_IRQn, pin_isr_map);
+        RegisterIsr(GPIO_IRQn, GpioInterruptHandler );
  }
  
  void LabGPIO::IntEdge(Edge edge){
@@ -120,45 +147,27 @@ void LabGPIO::EnableInterrupts(){
                 LOG_INFO("No edge selected");
                 break;
         case Edge::kRising:
-            if(SelPort==0)
-            {
-            LPC_GPIOINT -> IO0IntEnR = (1<<SelPin);
+            setRisingEdge();
             break;
-            }
-            else if (SelPort==2)
-            {
-            LPC_GPIOINT -> IO2IntEnR = (1<<SelPin);
-            break;
-            }
-            else break;
-            
         case Edge::kFalling:
-            if(SelPort==0)
-            {
-            LPC_GPIOINT -> IO0IntEnF = (1<<SelPin);
+            setFallingEdge();
             break;
-            }
-            else if (SelPort==2)
-            {
-            LPC_GPIOINT -> IO2IntEnF = (1<<SelPin);
-            break;
-            }
-            else break;
         case Edge::kBoth:
-            if(SelPort==0)
-            {
-            LPC_GPIOINT -> IO0IntEnR = (1<<SelPin);
-            LPC_GPIOINT -> IO0IntEnF = (1<<SelPin);
-            break;
-            }
-            else if (SelPort==2)
-            {
-            LPC_GPIOINT -> IO2IntEnR = (1<<SelPin);
-            LPC_GPIOINT -> IO2IntEnF = (1<<SelPin);
-            break;
-            }
-            else break;
+            setRisingEdge();
+            setFallingEdge();
+            break;   
     }
-    
+ }
+ void LabGPIO::setFallingEdge(){
+    *interrupts[interrupt_port][4] |= (1<<SelPin);
+ }
+ void LabGPIO::setRisingEdge(){
+    *interrupts[interrupt_port][3] |= (1<<SelPin);
+ }
+ void LabGPIO::ClrFallingEdge(){
+    *interrupts[interrupt_port][4] &= ~(1<<SelPin);
+ }
+ void LabGPIO::ClrRisingEdge(){
+    *interrupts[interrupt_port][3] &= ~(1<<SelPin);
  }
  

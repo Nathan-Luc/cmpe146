@@ -52,8 +52,7 @@ class LabGPIO
   void setInactive(); // make pin inactive resistors
   void setRepeater(); // set resistor to repeat state
   void IntEdge(Edge edge);
- private:
-   // Statically allocated a lookup table matrix here of function pointers 
+     // Statically allocated a lookup table matrix here of function pointers 
   // to avoid dynamic allocation.
   // 
   // Upon AttachInterruptHandler(), you will store the user's function callback
@@ -63,15 +62,19 @@ class LabGPIO
   // appropriate callback.
   //
   // Initialize everything to nullptr.
-  static  IsrPointer pin_isr_map[kPorts][kPins];
-
-  static void GpioInterruptHandler();
-  
+ 
   static void EnableInterrupts();
+ private:
+    void setRisingEdge();
+    void setFallingEdge();
+    void ClrFallingEdge();
+    void ClrRisingEdge();
+    static  IsrPointer pin_isr_map[kPorts][kPins];
+    static void GpioInterruptHandler();
     uint8_t SelPort;
     uint8_t SelPin;
-    uint8_t intport;
-    IsrPointer map;
+    uint8_t interrupt_port;
+ 
     pinconn *pc;
   /// port, pin and any other variables should be placed here.
   /// NOTE: Pin state should NEVER be cached! Always check the hardware
