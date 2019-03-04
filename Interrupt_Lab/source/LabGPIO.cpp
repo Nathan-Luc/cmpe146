@@ -16,7 +16,7 @@
         &LPC_GPIOINT->IO2IntEnR,
         &LPC_GPIOINT->IO2IntEnF,
      }};
-    
+    //inline static volatile uint32_t *stat= &(LPC_GPIOINT->IntStatus);
     
     IsrPointer LabGPIO::pin_isr_map[kPorts][kPins]={ nullptr};
     
@@ -88,8 +88,8 @@
        ReadBool() ? SetHigh() : SetLow();
    
   }
-  void LabGPIO::setPulldown(){ //this and functions below only work for the 4 switches on the SJ2 board
-      pc->pc_pulldown(SelPort, SelPin);
+void LabGPIO::setPulldown(){ 
+    pc->pc_pulldown(SelPort, SelPin);
 
   }
 void LabGPIO::setPullup(){
@@ -103,37 +103,28 @@ void LabGPIO::setRepeater(){
   }
  void LabGPIO::AttachInterruptHandler(IsrPointer isr, Edge edge){
     pin_isr_map[interrupt_port][SelPin]=isr;
+    printf("%i %i\n",interrupt_port,SelPin);
     IntEdge(edge);
   
  }
  void LabGPIO::GpioInterruptHandler(){
-  uint8_t selPin_local;
-  uint8_t i;
+    uint32_t selPin_local;
+
   
-  if((LPC_GPIOINT->IO0IntStatF | LPC_GPIOINT->IO0IntStatR)){
-    for( i = 0; i<32; i++)
-    {
-          if(((LPC_GPIOINT -> IO0IntStatF = (1<<i)) | (LPC_GPIOINT -> IO0IntStatR = (1<<i)))==1)
-          {
-              selPin_local = i;
-              break;
-          }
-    }
+    if((LPC_GPIOINT->IO0IntStatR) | (LPC_GPIOINT->IO0IntStatF)){
+    selPin_local = __builtin_ctz(LPC_GPIOINT->IO0IntStatR | LPC_GPIOINT->IO0IntStatF);
+    printf("%i\n",selPin_local);
     pin_isr_map[0][selPin_local]();
-    LPC_GPIOINT -> IO0IntClr = (1<< selPin_local);
-  }
-    if((LPC_GPIOINT->IO2IntStatF | LPC_GPIOINT->IO2IntStatR) ){
-    for( i = 0; i<32; i++)
-    {
-          if(((LPC_GPIOINT -> IO2IntStatF = (1<<i)) | (LPC_GPIOINT -> IO2IntStatR = (1<<i)))==1)
-          {
-              selPin_local = i;
-              break;
-          }
+    LPC_GPIOINT -> IO0IntClr &= ~(1<< selPin_local);
     }
+    
+   
+  
+    if((LPC_GPIOINT->IO2IntStatR) | (LPC_GPIOINT->IO2IntStatF)) {
+    selPin_local = __builtin_ctz((LPC_GPIOINT->IO2IntStatR)|(LPC_GPIOINT->IO2IntStatF));
     pin_isr_map[1][selPin_local]();
-    LPC_GPIOINT -> IO2IntClr = (1<< selPin_local);
-  }
+    LPC_GPIOINT -> IO2IntClr &= ~(1<< selPin_local);
+    }
  }
  
 void LabGPIO::EnableInterrupts(){

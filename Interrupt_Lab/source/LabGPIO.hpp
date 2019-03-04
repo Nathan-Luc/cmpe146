@@ -5,6 +5,8 @@
 #include "pinconn.hpp"
 #include "utility/log.hpp"
 #include "utility/time.hpp"
+#include <FreeRTOS.h>
+#include <task.h>
 
 class LabGPIO
 {
@@ -52,7 +54,7 @@ class LabGPIO
   void setInactive(); // make pin inactive resistors
   void setRepeater(); // set resistor to repeat state
   void IntEdge(Edge edge);
-     // Statically allocated a lookup table matrix here of function pointers 
+  // Statically allocated a lookup table matrix here of function pointers 
   // to avoid dynamic allocation.
   // 
   // Upon AttachInterruptHandler(), you will store the user's function callback

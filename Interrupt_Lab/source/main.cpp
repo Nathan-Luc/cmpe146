@@ -5,6 +5,8 @@
 #include <cstdint>
 #include <iterator>
 #include "L3_Application/oled_terminal.hpp"
+#include <FreeRTOS.h>
+#include <task.h>
 
 #include "utility/log.hpp"
 #include "utility/time.hpp"
@@ -23,8 +25,10 @@ int main()
   LPC_GPIOINT -> IO0IntEnR = (1<<29);
   RegisterIsr(GPIO_IRQn, GpioInterruptCallback);
   */
-  LabGPIO gpio(2, 3);
-   gpio.EnableInterrupts();
+  LabGPIO gpio(0,29);
+  //gpio.SetAsInput();
+  gpio.AttachInterruptHandler(&GpioInterruptCallback,LabGPIO::Edge::kRising);
+  gpio.EnableInterrupts();
   while(true)
   {    
     
@@ -35,8 +39,8 @@ int main()
 void GpioInterruptCallback()
 {
     LOG_INFO("In the interrupt");
-    Delay(5);
+    Delay(500);
   // 4) For the callback, do anything such as printf or blink and LED here to test your ISR
   // 5) MUST! Clear the source of the GPIO interrupt
-    LPC_GPIOINT->IO0IntClr = (1<<29);
+    LPC_GPIOINT->IO0IntClr &= ~(1<<29);
 }

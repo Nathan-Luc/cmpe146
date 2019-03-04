@@ -168,8 +168,6 @@ Discarded input sections
                 0x0000000000000000        0x8 build/application/compiled/source/LabGPIO.cpp.o
  .data._ZL4GPIO
                 0x0000000000000000       0x18 build/application/compiled/source/LabGPIO.cpp.o
- .data._ZL10interrupts
-                0x0000000000000000       0x28 build/application/compiled/source/LabGPIO.cpp.o
  .text._ZN7LabGPIO10SetAsInputEv
                 0x0000000000000000       0x48 build/application/compiled/source/LabGPIO.cpp.o
  .text._ZN7LabGPIO11SetAsOutputEv
@@ -196,23 +194,10 @@ Discarded input sections
                 0x0000000000000000       0x38 build/application/compiled/source/LabGPIO.cpp.o
  .text._ZN7LabGPIO11setRepeaterEv
                 0x0000000000000000       0x38 build/application/compiled/source/LabGPIO.cpp.o
- .text._ZN7LabGPIO22AttachInterruptHandlerEPFvvENS_4EdgeE
-                0x0000000000000000       0x50 build/application/compiled/source/LabGPIO.cpp.o
- .rodata._ZZN7LabGPIO7IntEdgeENS_4EdgeEE4file
-                0x0000000000000000        0xc build/application/compiled/source/LabGPIO.cpp.o
- .rodata        0x0000000000000000       0x4a build/application/compiled/source/LabGPIO.cpp.o
- .text._ZN7LabGPIO7IntEdgeENS_4EdgeE
-                0x0000000000000000       0x7c build/application/compiled/source/LabGPIO.cpp.o
- .text._ZN7LabGPIO14setFallingEdgeEv
-                0x0000000000000000       0x68 build/application/compiled/source/LabGPIO.cpp.o
- .text._ZN7LabGPIO13setRisingEdgeEv
-                0x0000000000000000       0x68 build/application/compiled/source/LabGPIO.cpp.o
  .text._ZN7LabGPIO14ClrFallingEdgeEv
                 0x0000000000000000       0x6c build/application/compiled/source/LabGPIO.cpp.o
  .text._ZN7LabGPIO13ClrRisingEdgeEv
                 0x0000000000000000       0x6c build/application/compiled/source/LabGPIO.cpp.o
- .rodata._ZZN7LabGPIO7IntEdgeENS_4EdgeEE19__PRETTY_FUNCTION__
-                0x0000000000000000       0x25 build/application/compiled/source/LabGPIO.cpp.o
  .group         0x0000000000000000        0xc build/application/compiled/source/main.cpp.o
  .group         0x0000000000000000        0xc build/application/compiled/source/main.cpp.o
  .group         0x0000000000000000       0x14 build/application/compiled/source/main.cpp.o
@@ -276,12 +261,6 @@ Discarded input sections
                 0x0000000000000000       0x34 build/application/compiled/source/main.cpp.o
  .text._ZN7Ssd130617NormalScreenColorEv
                 0x0000000000000000       0x34 build/application/compiled/source/main.cpp.o
- .rodata._ZZ21GpioInterruptCallbackvE4file
-                0x0000000000000000        0x9 build/application/compiled/source/main.cpp.o
- .text._Z21GpioInterruptCallbackv
-                0x0000000000000000       0x50 build/application/compiled/source/main.cpp.o
- .rodata._ZZ21GpioInterruptCallbackvE19__PRETTY_FUNCTION__
-                0x0000000000000000       0x1d build/application/compiled/source/main.cpp.o
  .text          0x0000000000000000        0x0 build/application/compiled/source/pinconn.cpp.o
  .data          0x0000000000000000        0x0 build/application/compiled/source/pinconn.cpp.o
  .bss           0x0000000000000000        0x0 build/application/compiled/source/pinconn.cpp.o
@@ -2417,7 +2396,7 @@ LOAD /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../l
                 0x0000000020008000                __top_RAM2 = 0x20008000
                 0x0000000020000000                __user_heap_base = __base_RAM2
 
-.text           0x0000000000010000     0x9124
+.text           0x0000000000010000     0x939c
  FILL mask 0xff
                 0x0000000000010000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -2425,15 +2404,15 @@ LOAD /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../l
                 0x00000000000100e4                . = ALIGN (0x4)
                 0x00000000000100e4                section_table_start = .
                 0x00000000000100e4                data_section_table = .
-                0x00000000000100e4        0x4 LONG 0x1912c LOADADDR (.data)
+                0x00000000000100e4        0x4 LONG 0x193a4 LOADADDR (.data)
                 0x00000000000100e8        0x4 LONG 0x10000000 ADDR (.data)
-                0x00000000000100ec        0x4 LONG 0x23c SIZEOF (.data)
-                0x00000000000100f0        0x4 LONG 0x1912c LOADADDR (.data_RAM2)
+                0x00000000000100ec        0x4 LONG 0x264 SIZEOF (.data)
+                0x00000000000100f0        0x4 LONG 0x193a4 LOADADDR (.data_RAM2)
                 0x00000000000100f4        0x4 LONG 0x20000000 ADDR (.data_RAM2)
                 0x00000000000100f8        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x00000000000100fc                data_section_table_end = .
                 0x00000000000100fc                bss_section_table = .
-                0x00000000000100fc        0x4 LONG 0x10000240 ADDR (.bss)
+                0x00000000000100fc        0x4 LONG 0x10000268 ADDR (.bss)
                 0x0000000000010100        0x4 LONG 0x46c SIZEOF (.bss)
                 0x0000000000010104        0x4 LONG 0x20000000 ADDR (.bss_RAM2)
                 0x0000000000010108        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
@@ -2492,903 +2471,932 @@ LOAD /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../l
                 0x0000000000010364       0x58 build/application/compiled/source/LabGPIO.cpp.o
                 0x0000000000010364                LabGPIO::LabGPIO(unsigned char, unsigned char)
                 0x0000000000010364                LabGPIO::LabGPIO(unsigned char, unsigned char)
+ .text._ZN7LabGPIO22AttachInterruptHandlerEPFvvENS_4EdgeE
+                0x00000000000103bc       0x64 build/application/compiled/source/LabGPIO.cpp.o
+                0x00000000000103bc                LabGPIO::AttachInterruptHandler(void (*)(), LabGPIO::Edge)
  .text._ZN7LabGPIO20GpioInterruptHandlerEv
-                0x00000000000103bc      0x12c build/application/compiled/source/LabGPIO.cpp.o
-                0x00000000000103bc                LabGPIO::GpioInterruptHandler()
+                0x0000000000010420       0xd4 build/application/compiled/source/LabGPIO.cpp.o
+                0x0000000000010420                LabGPIO::GpioInterruptHandler()
  .text._ZN7LabGPIO16EnableInterruptsEv
-                0x00000000000104e8       0x34 build/application/compiled/source/LabGPIO.cpp.o
-                0x00000000000104e8                LabGPIO::EnableInterrupts()
+                0x00000000000104f4       0x34 build/application/compiled/source/LabGPIO.cpp.o
+                0x00000000000104f4                LabGPIO::EnableInterrupts()
+ .text._ZN7LabGPIO7IntEdgeENS_4EdgeE
+                0x0000000000010528       0x7c build/application/compiled/source/LabGPIO.cpp.o
+                0x0000000000010528                LabGPIO::IntEdge(LabGPIO::Edge)
+ .text._ZN7LabGPIO14setFallingEdgeEv
+                0x00000000000105a4       0x68 build/application/compiled/source/LabGPIO.cpp.o
+                0x00000000000105a4                LabGPIO::setFallingEdge()
+ .text._ZN7LabGPIO13setRisingEdgeEv
+                0x000000000001060c       0x68 build/application/compiled/source/LabGPIO.cpp.o
+                0x000000000001060c                LabGPIO::setRisingEdge()
  .text._ZN12_GLOBAL__N_113DefaultUptimeEv
-                0x000000000001051c       0x30 build/application/compiled/source/main.cpp.o
+                0x0000000000010674       0x30 build/application/compiled/source/main.cpp.o
  .text._Z12Millisecondsv
-                0x000000000001054c       0x44 build/application/compiled/source/main.cpp.o
-                0x000000000001054c                Milliseconds()
+                0x00000000000106a4       0x44 build/application/compiled/source/main.cpp.o
+                0x00000000000106a4                Milliseconds()
  .text._ZZ4WaityENKUlvE_clEv
-                0x0000000000010590       0x2c build/application/compiled/source/main.cpp.o
-                0x0000000000010590                Wait(unsigned long long)::{lambda()#1}::operator()() const
+                0x00000000000106e8       0x2c build/application/compiled/source/main.cpp.o
+                0x00000000000106e8                Wait(unsigned long long)::{lambda()#1}::operator()() const
  .text._ZZ4WaityENUlvE_4_FUNEv
-                0x00000000000105bc       0x2c build/application/compiled/source/main.cpp.o
-                0x00000000000105bc                Wait(unsigned long long)::{lambda()#1}::_FUN()
+                0x0000000000010714       0x2c build/application/compiled/source/main.cpp.o
+                0x0000000000010714                Wait(unsigned long long)::{lambda()#1}::_FUN()
  .text._Z4Waity
-                0x00000000000105e8       0xc4 build/application/compiled/source/main.cpp.o
-                0x00000000000105e8                Wait(unsigned long long)
+                0x0000000000010740       0xc4 build/application/compiled/source/main.cpp.o
+                0x0000000000010740                Wait(unsigned long long)
  .text._Z5Delayy
-                0x00000000000106ac       0x30 build/application/compiled/source/main.cpp.o
-                0x00000000000106ac                Delay(unsigned long long)
+                0x0000000000010804       0x30 build/application/compiled/source/main.cpp.o
+                0x0000000000010804                Delay(unsigned long long)
  .text._ZN4Gpio7SetHighEv
-                0x00000000000106dc       0x64 build/application/compiled/source/main.cpp.o
-                0x00000000000106dc                Gpio::SetHigh()
+                0x0000000000010834       0x64 build/application/compiled/source/main.cpp.o
+                0x0000000000010834                Gpio::SetHigh()
  .text._ZN4Gpio6SetLowEv
-                0x0000000000010740       0x64 build/application/compiled/source/main.cpp.o
-                0x0000000000010740                Gpio::SetLow()
+                0x0000000000010898       0x64 build/application/compiled/source/main.cpp.o
+                0x0000000000010898                Gpio::SetLow()
  .text._ZN4Gpio3SetEN13GpioInterface5StateE
-                0x00000000000107a4       0x44 build/application/compiled/source/main.cpp.o
-                0x00000000000107a4                Gpio::Set(GpioInterface::State)
+                0x00000000000108fc       0x44 build/application/compiled/source/main.cpp.o
+                0x00000000000108fc                Gpio::Set(GpioInterface::State)
  .text._ZN4util5ValueIN3Ssp10PeripheralEiEET0_T_
-                0x00000000000107e8       0x2c build/application/compiled/source/main.cpp.o
-                0x00000000000107e8                int util::Value<Ssp::Peripheral, int>(Ssp::Peripheral)
+                0x0000000000010940       0x2c build/application/compiled/source/main.cpp.o
+                0x0000000000010940                int util::Value<Ssp::Peripheral, int>(Ssp::Peripheral)
  .text._ZN3Ssp17IsTransferRegBusyEv
-                0x0000000000010814       0x78 build/application/compiled/source/main.cpp.o
-                0x0000000000010814                Ssp::IsTransferRegBusy()
+                0x000000000001096c       0x78 build/application/compiled/source/main.cpp.o
+                0x000000000001096c                Ssp::IsTransferRegBusy()
  .text._ZN3Ssp8TransferEt
-                0x000000000001088c       0x6c build/application/compiled/source/main.cpp.o
-                0x000000000001088c                Ssp::Transfer(unsigned short)
- .text.main     0x00000000000108f8       0x3c build/application/compiled/source/main.cpp.o
-                0x00000000000108f8                main
+                0x00000000000109e4       0x6c build/application/compiled/source/main.cpp.o
+                0x00000000000109e4                Ssp::Transfer(unsigned short)
+ .text.main     0x0000000000010a50       0x4c build/application/compiled/source/main.cpp.o
+                0x0000000000010a50                main
+ .text._Z21GpioInterruptCallbackv
+                0x0000000000010a9c       0x54 build/application/compiled/source/main.cpp.o
+                0x0000000000010a9c                GpioInterruptCallback()
  .text._Z4WaitIZ4WaityEUlvE_E6StatusyT_
-                0x0000000000010934       0xac build/application/compiled/source/main.cpp.o
-                0x0000000000010934                Status Wait<Wait(unsigned long long)::{lambda()#1}>(unsigned long long, Wait(unsigned long long)::{lambda()#1})
+                0x0000000000010af0       0xac build/application/compiled/source/main.cpp.o
+                0x0000000000010af0                Status Wait<Wait(unsigned long long)::{lambda()#1}>(unsigned long long, Wait(unsigned long long)::{lambda()#1})
  .text._ZN3bit4ReadImEEbT_m
-                0x00000000000109e0       0x44 build/application/compiled/source/main.cpp.o
-                0x00000000000109e0                bool bit::Read<unsigned long>(unsigned long, unsigned long)
+                0x0000000000010b9c       0x44 build/application/compiled/source/main.cpp.o
+                0x0000000000010b9c                bool bit::Read<unsigned long>(unsigned long, unsigned long)
  .text._ZN5debug14PrintBacktraceEbPv
-                0x0000000000010a24      0x100 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010a24                debug::PrintBacktrace(bool, void*)
+                0x0000000000010be0      0x100 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010be0                debug::PrintBacktrace(bool, void*)
  .text._Z17SetUptimeFunctionPFyvE
-                0x0000000000010b24       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010b24                SetUptimeFunction(unsigned long long (*)())
+                0x0000000000010ce0       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010ce0                SetUptimeFunction(unsigned long long (*)())
  .text._ZN23Lpc40xxSystemController17SetClockFrequencyEh
-                0x0000000000010b54       0x90 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010b54                Lpc40xxSystemController::SetClockFrequency(unsigned char)
+                0x0000000000010d10       0x90 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010d10                Lpc40xxSystemController::SetClockFrequency(unsigned char)
  .text._ZN23Lpc40xxSystemController25SetPeripheralClockDividerEh
-                0x0000000000010be4       0x58 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010be4                Lpc40xxSystemController::SetPeripheralClockDivider(unsigned char)
+                0x0000000000010da0       0x58 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010da0                Lpc40xxSystemController::SetPeripheralClockDivider(unsigned char)
  .text._ZNK23Lpc40xxSystemController25GetPeripheralClockDividerEv
-                0x0000000000010c3c       0x18 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010c3c                Lpc40xxSystemController::GetPeripheralClockDivider() const
+                0x0000000000010df8       0x18 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010df8                Lpc40xxSystemController::GetPeripheralClockDivider() const
  .text._ZNK23Lpc40xxSystemController18GetSystemFrequencyEv
-                0x0000000000010c54       0x14 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010c54                Lpc40xxSystemController::GetSystemFrequency() const
+                0x0000000000010e10       0x14 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010e10                Lpc40xxSystemController::GetSystemFrequency() const
  .text._ZNK23Lpc40xxSystemController22GetPeripheralFrequencyEv
-                0x0000000000010c68       0x3e build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010c68                Lpc40xxSystemController::GetPeripheralFrequency() const
- *fill*         0x0000000000010ca6        0x2 ff
+                0x0000000000010e24       0x3e build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010e24                Lpc40xxSystemController::GetPeripheralFrequency() const
+ *fill*         0x0000000000010e62        0x2 ff
  .text._ZN23Lpc40xxSystemController17PowerUpPeripheralERKN25SystemControllerInterface12PeripheralIDE
-                0x0000000000010ca8       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010ca8                Lpc40xxSystemController::PowerUpPeripheral(SystemControllerInterface::PeripheralID const&)
+                0x0000000000010e64       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010e64                Lpc40xxSystemController::PowerUpPeripheral(SystemControllerInterface::PeripheralID const&)
  .text._ZN23Lpc40xxSystemController19PowerDownPeripheralERKN25SystemControllerInterface12PeripheralIDE
-                0x0000000000010cd8       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010cd8                Lpc40xxSystemController::PowerDownPeripheral(SystemControllerInterface::PeripheralID const&)
+                0x0000000000010e94       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010e94                Lpc40xxSystemController::PowerDownPeripheral(SystemControllerInterface::PeripheralID const&)
  .text._ZN23Lpc40xxSystemController22SelectOscillatorSourceENS_16OscillatorSourceE
-                0x0000000000010d08       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010d08                Lpc40xxSystemController::SelectOscillatorSource(Lpc40xxSystemController::OscillatorSource)
+                0x0000000000010ec4       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010ec4                Lpc40xxSystemController::SelectOscillatorSource(Lpc40xxSystemController::OscillatorSource)
  .text._ZN23Lpc40xxSystemController21SelectMainClockSourceENS_15MainClockSourceE
-                0x0000000000010d3c       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010d3c                Lpc40xxSystemController::SelectMainClockSource(Lpc40xxSystemController::MainClockSource)
+                0x0000000000010ef8       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010ef8                Lpc40xxSystemController::SelectMainClockSource(Lpc40xxSystemController::MainClockSource)
  .text._ZN23Lpc40xxSystemController20SelectUsbClockSourceENS_9UsbSourceE
-                0x0000000000010d6c       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010d6c                Lpc40xxSystemController::SelectUsbClockSource(Lpc40xxSystemController::UsbSource)
+                0x0000000000010f28       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010f28                Lpc40xxSystemController::SelectUsbClockSource(Lpc40xxSystemController::UsbSource)
  .text._ZN23Lpc40xxSystemController22SelectSpifiClockSourceENS_11SpifiSourceE
-                0x0000000000010d9c       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010d9c                Lpc40xxSystemController::SelectSpifiClockSource(Lpc40xxSystemController::SpifiSource)
+                0x0000000000010f58       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010f58                Lpc40xxSystemController::SelectSpifiClockSource(Lpc40xxSystemController::SpifiSource)
  .text._ZN23Lpc40xxSystemController12CalculatePllENS_8PllInputEt
-                0x0000000000010dcc      0x110 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010dcc                Lpc40xxSystemController::CalculatePll(Lpc40xxSystemController::PllInput, unsigned short)
+                0x0000000000010f88      0x110 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000010f88                Lpc40xxSystemController::CalculatePll(Lpc40xxSystemController::PllInput, unsigned short)
  .text._ZN23Lpc40xxSystemController10SetMainPllENS_8PllInputEt
-                0x0000000000010edc      0x170 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000010edc                Lpc40xxSystemController::SetMainPll(Lpc40xxSystemController::PllInput, unsigned short)
+                0x0000000000011098      0x170 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011098                Lpc40xxSystemController::SetMainPll(Lpc40xxSystemController::PllInput, unsigned short)
  .text._ZN23Lpc40xxSystemController18SetCpuClockDividerEh
-                0x000000000001104c       0x68 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x000000000001104c                Lpc40xxSystemController::SetCpuClockDivider(unsigned char)
+                0x0000000000011208       0x68 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011208                Lpc40xxSystemController::SetCpuClockDivider(unsigned char)
  .text._ZN23Lpc40xxSystemController18SetEmcClockDividerENS_10EmcDividerE
-                0x00000000000110b4       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000110b4                Lpc40xxSystemController::SetEmcClockDivider(Lpc40xxSystemController::EmcDivider)
+                0x0000000000011270       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011270                Lpc40xxSystemController::SetEmcClockDivider(Lpc40xxSystemController::EmcDivider)
  .text._ZN11SystemTimer12DisableTimerEv
-                0x00000000000110e4       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000110e4                SystemTimer::DisableTimer()
+                0x00000000000112a0       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000112a0                SystemTimer::DisableTimer()
  .text._ZN11SystemTimer18SystemTimerHandlerEv
-                0x0000000000011120       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011120                SystemTimer::SystemTimerHandler()
+                0x00000000000112dc       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000112dc                SystemTimer::SystemTimerHandler()
  .text._ZN11SystemTimer14SetIsrFunctionEPFvvE
-                0x0000000000011154       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011154                SystemTimer::SetIsrFunction(void (*)())
+                0x0000000000011310       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011310                SystemTimer::SetIsrFunction(void (*)())
  .text._ZN11SystemTimer10StartTimerEv
-                0x0000000000011188       0x9c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011188                SystemTimer::StartTimer()
+                0x0000000000011344       0x9c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011344                SystemTimer::StartTimer()
  .text._ZN11SystemTimer16SetTickFrequencyEm
-                0x0000000000011224       0x94 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011224                SystemTimer::SetTickFrequency(unsigned long)
+                0x00000000000113e0       0x94 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000113e0                SystemTimer::SetTickFrequency(unsigned long)
  .text._ZN3Pin14SetPinFunctionEh
-                0x00000000000112b8       0x78 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000112b8                Pin::SetPinFunction(unsigned char)
+                0x0000000000011474       0x78 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011474                Pin::SetPinFunction(unsigned char)
  .text._ZN3Pin7SetModeEN12PinInterface4ModeE
-                0x0000000000011330       0x80 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011330                Pin::SetMode(PinInterface::Mode)
+                0x00000000000114ec       0x80 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000114ec                Pin::SetMode(PinInterface::Mode)
  .text._ZN3Pin16EnableHysteresisEb
-                0x00000000000113b0       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000113b0                Pin::EnableHysteresis(bool)
+                0x000000000001156c       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x000000000001156c                Pin::EnableHysteresis(bool)
  .text._ZN3Pin14SetAsActiveLowEb
-                0x0000000000011424       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011424                Pin::SetAsActiveLow(bool)
+                0x00000000000115e0       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000115e0                Pin::SetAsActiveLow(bool)
  .text._ZN3Pin15SetAsAnalogModeEb
-                0x0000000000011498       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011498                Pin::SetAsAnalogMode(bool)
+                0x0000000000011654       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011654                Pin::SetAsAnalogMode(bool)
  .text._ZN3Pin19EnableDigitalFilterEb
-                0x0000000000011514       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011514                Pin::EnableDigitalFilter(bool)
+                0x00000000000116d0       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000116d0                Pin::EnableDigitalFilter(bool)
  .text._ZN3Pin14EnableFastModeEb
-                0x0000000000011590       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011590                Pin::EnableFastMode(bool)
+                0x000000000001174c       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x000000000001174c                Pin::EnableFastMode(bool)
  .text._ZN3Pin22EnableI2cHighSpeedModeEb
-                0x0000000000011604       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011604                Pin::EnableI2cHighSpeedMode(bool)
+                0x00000000000117c0       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000117c0                Pin::EnableI2cHighSpeedMode(bool)
  .text._ZN3Pin25EnableI2cHighCurrentDriveEb
-                0x0000000000011680       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011680                Pin::EnableI2cHighCurrentDrive(bool)
+                0x000000000001183c       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x000000000001183c                Pin::EnableI2cHighCurrentDrive(bool)
  .text._ZN3Pin14SetAsOpenDrainEb
-                0x00000000000116f4       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000116f4                Pin::SetAsOpenDrain(bool)
+                0x00000000000118b0       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000118b0                Pin::SetAsOpenDrain(bool)
  .text._ZN3Pin9EnableDacEb
-                0x0000000000011768       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011768                Pin::EnableDac(bool)
+                0x0000000000011924       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011924                Pin::EnableDac(bool)
  .text._ZN3Pin8BitPlaceEmmmm
-                0x00000000000117dc       0x64 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000117dc                Pin::BitPlace(unsigned long, unsigned long, unsigned long, unsigned long)
+                0x0000000000011998       0x64 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011998                Pin::BitPlace(unsigned long, unsigned long, unsigned long, unsigned long)
  .text._ZNK3Pin7GetPortEv
-                0x0000000000011840       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011840                Pin::GetPort() const
+                0x00000000000119fc       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000119fc                Pin::GetPort() const
  .text._ZNK3Pin6GetPinEv
-                0x000000000001186c       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x000000000001186c                Pin::GetPin() const
+                0x0000000000011a28       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011a28                Pin::GetPin() const
  .text._ZN4util5ValueIN14TimerInterface9TimerPortEhEET0_T_
-                0x0000000000011898       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011898                unsigned char util::Value<TimerInterface::TimerPort, unsigned char>(TimerInterface::TimerPort)
+                0x0000000000011a54       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011a54                unsigned char util::Value<TimerInterface::TimerPort, unsigned char>(TimerInterface::TimerPort)
  .text._ZN5Timer12DoNothingIsrEv
-                0x00000000000118c8       0x20 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000118c8                Timer::DoNothingIsr()
+                0x0000000000011a84       0x20 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011a84                Timer::DoNothingIsr()
  .text._ZN5Timer10InitializeEmPFvvEl
-                0x00000000000118e8      0x134 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000118e8                Timer::Initialize(unsigned long, void (*)(), long)
+                0x0000000000011aa4      0x134 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011aa4                Timer::Initialize(unsigned long, void (*)(), long)
  .text._ZN4util5ValueIN14TimerInterface20MatchControlRegisterEhEET0_T_
-                0x0000000000011a1c       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011a1c                unsigned char util::Value<TimerInterface::MatchControlRegister, unsigned char>(TimerInterface::MatchControlRegister)
+                0x0000000000011bd8       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011bd8                unsigned char util::Value<TimerInterface::MatchControlRegister, unsigned char>(TimerInterface::MatchControlRegister)
  .text._ZN5Timer8SetTimerEmN14TimerInterface17TimerIsrConditionENS0_20MatchControlRegisterE
-                0x0000000000011a4c       0xf8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011a4c                Timer::SetTimer(unsigned long, TimerInterface::TimerIsrCondition, TimerInterface::MatchControlRegister)
+                0x0000000000011c08       0xf8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011c08                Timer::SetTimer(unsigned long, TimerInterface::TimerIsrCondition, TimerInterface::MatchControlRegister)
  .text._ZN5Timer8GetTimerEv
-                0x0000000000011b44       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011b44                Timer::GetTimer()
+                0x0000000000011d00       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011d00                Timer::GetTimer()
  .text._ZN4Uart11SetBaudRateEm
-                0x0000000000011b80       0xcc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011b80                Uart::SetBaudRate(unsigned long)
+                0x0000000000011d3c       0xcc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011d3c                Uart::SetBaudRate(unsigned long)
  .text._ZN4Uart10InitializeEm
-                0x0000000000011c4c       0xe4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011c4c                Uart::Initialize(unsigned long)
+                0x0000000000011e08       0xe4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011e08                Uart::Initialize(unsigned long)
  .text._ZZN4Uart4SendEhENKUlvE_clEv
-                0x0000000000011d30       0x4c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011d30                Uart::Send(unsigned char)::{lambda()#1}::operator()() const
+                0x0000000000011eec       0x4c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011eec                Uart::Send(unsigned char)::{lambda()#1}::operator()() const
  .text._ZN4Uart4SendEh
-                0x0000000000011d7c       0xe8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011d7c                Uart::Send(unsigned char)
+                0x0000000000011f38       0xe8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000011f38                Uart::Send(unsigned char)
  .text._ZZN4Uart7ReceiveEmENKUlvE_clEv
-                0x0000000000011e64       0x4c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011e64                Uart::Receive(unsigned long)::{lambda()#1}::operator()() const
+                0x0000000000012020       0x4c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012020                Uart::Receive(unsigned long)::{lambda()#1}::operator()() const
  .text._ZN4Uart7ReceiveEm
-                0x0000000000011eb0       0xf8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011eb0                Uart::Receive(unsigned long)
+                0x000000000001206c       0xf8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x000000000001206c                Uart::Receive(unsigned long)
  .text._ZN4Uart21FindClosestFractionalEf
-                0x0000000000011fa8       0xfc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000011fa8                Uart::FindClosestFractional(float)
+                0x0000000000012164       0xfc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012164                Uart::FindClosestFractional(float)
  .text._ZN4Uart15DividerEstimateEff
-                0x00000000000120a4       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000120a4                Uart::DividerEstimate(float, float)
+                0x0000000000012260       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012260                Uart::DividerEstimate(float, float)
  .text._ZN4Uart18FractionalEstimateEff
-                0x0000000000012118       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000012118                Uart::FractionalEstimate(float, float)
+                0x00000000000122d4       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000122d4                Uart::FractionalEstimate(float, float)
  .text._ZN4Uart9IsDecmialEf
-                0x000000000001218c       0x84 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x000000000001218c                Uart::IsDecmial(float)
+                0x0000000000012348       0x84 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012348                Uart::IsDecmial(float)
  .text._ZN4Uart23GenerateUartCalibrationEf
-                0x0000000000012210      0x1f0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000012210                Uart::GenerateUartCalibration(float)
+                0x00000000000123cc      0x1f0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000123cc                Uart::GenerateUartCalibration(float)
  .text._ZN12_GLOBAL__N_113Lpc40xxUptimeEv
-                0x0000000000012400       0x40 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000125bc       0x40 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
  .text.UptimeRTOS
-                0x0000000000012440       0x40 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000012440                UptimeRTOS
+                0x00000000000125fc       0x40 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000125fc                UptimeRTOS
  .text._Z12LowLevelInitv
-                0x0000000000012480       0xbc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000012480                LowLevelInit()
+                0x000000000001263c       0xbc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x000000000001263c                LowLevelInit()
  .text.SystemInit
-                0x000000000001253c       0x1a build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x000000000001253c                SystemInit
- *fill*         0x0000000000012556        0x2 ff
+                0x00000000000126f8       0x1a build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000126f8                SystemInit
+ *fill*         0x0000000000012712        0x2 ff
  .text.ResetIsr
-                0x0000000000012558       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000012558                ResetIsr
+                0x0000000000012714       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012714                ResetIsr
  .text._ZN5Timer12TimerHandlerILN14TimerInterface9TimerPortE0EEEvv
-                0x0000000000012588       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000012588                void Timer::TimerHandler<(TimerInterface::TimerPort)0>()
+                0x0000000000012744       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012744                void Timer::TimerHandler<(TimerInterface::TimerPort)0>()
  .text._ZN5Timer12TimerHandlerILN14TimerInterface9TimerPortE1EEEvv
-                0x00000000000125c4       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000125c4                void Timer::TimerHandler<(TimerInterface::TimerPort)1>()
+                0x0000000000012780       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012780                void Timer::TimerHandler<(TimerInterface::TimerPort)1>()
  .text._ZN5Timer12TimerHandlerILN14TimerInterface9TimerPortE2EEEvv
-                0x0000000000012600       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000012600                void Timer::TimerHandler<(TimerInterface::TimerPort)2>()
+                0x00000000000127bc       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000127bc                void Timer::TimerHandler<(TimerInterface::TimerPort)2>()
  .text._ZN5Timer12TimerHandlerILN14TimerInterface9TimerPortE3EEEvv
-                0x000000000001263c       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x000000000001263c                void Timer::TimerHandler<(TimerInterface::TimerPort)3>()
+                0x00000000000127f8       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000127f8                void Timer::TimerHandler<(TimerInterface::TimerPort)3>()
  .text._Z4WaitIZN4Uart4SendEhEUlvE_E6StatusyT_
-                0x0000000000012678       0xa8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000012678                Status Wait<Uart::Send(unsigned char)::{lambda()#1}>(unsigned long long, Uart::Send(unsigned char)::{lambda()#1})
+                0x0000000000012834       0xa8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012834                Status Wait<Uart::Send(unsigned char)::{lambda()#1}>(unsigned long long, Uart::Send(unsigned char)::{lambda()#1})
  .text._Z4WaitIZN4Uart7ReceiveEmEUlvE_E6StatusyT_
-                0x0000000000012720       0xa8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000012720                Status Wait<Uart::Receive(unsigned long)::{lambda()#1}>(unsigned long long, Uart::Receive(unsigned long)::{lambda()#1})
+                0x00000000000128dc       0xa8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000128dc                Status Wait<Uart::Receive(unsigned long)::{lambda()#1}>(unsigned long long, Uart::Receive(unsigned long)::{lambda()#1})
  .text._ZN5Timer15ClearInterruptsILN14TimerInterface9TimerPortE0EEEvv
-                0x00000000000127c8       0xa0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000127c8                void Timer::ClearInterrupts<(TimerInterface::TimerPort)0>()
+                0x0000000000012984       0xa0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012984                void Timer::ClearInterrupts<(TimerInterface::TimerPort)0>()
  .text._ZN5Timer15ClearInterruptsILN14TimerInterface9TimerPortE1EEEvv
-                0x0000000000012868       0xa0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000012868                void Timer::ClearInterrupts<(TimerInterface::TimerPort)1>()
+                0x0000000000012a24       0xa0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012a24                void Timer::ClearInterrupts<(TimerInterface::TimerPort)1>()
  .text._ZN5Timer15ClearInterruptsILN14TimerInterface9TimerPortE2EEEvv
-                0x0000000000012908       0xa0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000012908                void Timer::ClearInterrupts<(TimerInterface::TimerPort)2>()
+                0x0000000000012ac4       0xa0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012ac4                void Timer::ClearInterrupts<(TimerInterface::TimerPort)2>()
  .text._ZN5Timer15ClearInterruptsILN14TimerInterface9TimerPortE3EEEvv
-                0x00000000000129a8       0xa0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000129a8                void Timer::ClearInterrupts<(TimerInterface::TimerPort)3>()
+                0x0000000000012b64       0xa0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012b64                void Timer::ClearInterrupts<(TimerInterface::TimerPort)3>()
  .text._Z41__static_initialization_and_destruction_0ii
-                0x0000000000012a48       0xdc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000012c04       0xdc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
  .text._GLOBAL__sub_I_UptimeRTOS
-                0x0000000000012b24        0xe build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
- *fill*         0x0000000000012b32        0x2 ff
+                0x0000000000012ce0        0xe build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+ *fill*         0x0000000000012cee        0x2 ff
  .text.NVIC_EnableIRQ
-                0x0000000000012b34       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+                0x0000000000012cf0       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
  .text.NVIC_SetPriority
-                0x0000000000012b60       0x54 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+                0x0000000000012d1c       0x54 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
  .text.InterruptLookupHandler
-                0x0000000000012bb4       0x6c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
-                0x0000000000012bb4                Pwm0IrqHandler
-                0x0000000000012bb4                EepromIrqHandler
-                0x0000000000012bb4                Timer2IrqHandler
-                0x0000000000012bb4                I2c1IrqHandler
-                0x0000000000012bb4                BusFaultHandler
-                0x0000000000012bb4                LcdIrqHandler
-                0x0000000000012bb4                I2c2IrqHandler
-                0x0000000000012bb4                CanIrqHandler
-                0x0000000000012bb4                RitIrqHandler
-                0x0000000000012bb4                Uart2IrqHandler
-                0x0000000000012bb4                I2sIrqHandler
-                0x0000000000012bb4                PendSVHandler
-                0x0000000000012bb4                UsageFaultHandler
-                0x0000000000012bb4                Uart4IrqHandler
-                0x0000000000012bb4                InterruptLookupHandler
-                0x0000000000012bb4                BodIrqHandler
-                0x0000000000012bb4                SysTickHandler
-                0x0000000000012bb4                RtcIrqHandler
-                0x0000000000012bb4                Uart0IrqHandler
-                0x0000000000012bb4                UsbIrqHandler
-                0x0000000000012bb4                AdcIrqHandler
-                0x0000000000012bb4                EnetIrqHandler
-                0x0000000000012bb4                DmaIrqHandler
-                0x0000000000012bb4                Eint1IrqHandler
-                0x0000000000012bb4                SvcHandler
-                0x0000000000012bb4                GpioIrqHandler
-                0x0000000000012bb4                SdioIrqHandler
-                0x0000000000012bb4                Pll1IrqHandler
-                0x0000000000012bb4                MemManageHandler
-                0x0000000000012bb4                Pwm1IrqHandler
-                0x0000000000012bb4                Timer0IrqHandler
-                0x0000000000012bb4                Uart3IrqHandler
-                0x0000000000012bb4                Timer1IrqHandler
-                0x0000000000012bb4                Uart1IrqHandler
-                0x0000000000012bb4                QeiIrqHandler
-                0x0000000000012bb4                Ssp2IrqHandler
-                0x0000000000012bb4                Ssp1IrqHandler
-                0x0000000000012bb4                Ssp0IrqHandler
-                0x0000000000012bb4                UsbactivityIrqHandler
-                0x0000000000012bb4                Pll0IrqHandler
-                0x0000000000012bb4                CanactivityIrqHandler
-                0x0000000000012bb4                NmiHandler
-                0x0000000000012bb4                McpwmIrqHandler
-                0x0000000000012bb4                WdtIrqHandler
-                0x0000000000012bb4                DebugMonHandler
-                0x0000000000012bb4                Eint2IrqHandler
-                0x0000000000012bb4                Timer3IrqHandler
-                0x0000000000012bb4                Eint3IrqHandler
-                0x0000000000012bb4                I2c0IrqHandler
-                0x0000000000012bb4                Eint0IrqHandler
-                0x0000000000012bb4                SpiIrqHandler
+                0x0000000000012d70       0x6c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+                0x0000000000012d70                Pwm0IrqHandler
+                0x0000000000012d70                EepromIrqHandler
+                0x0000000000012d70                Timer2IrqHandler
+                0x0000000000012d70                I2c1IrqHandler
+                0x0000000000012d70                BusFaultHandler
+                0x0000000000012d70                LcdIrqHandler
+                0x0000000000012d70                I2c2IrqHandler
+                0x0000000000012d70                CanIrqHandler
+                0x0000000000012d70                RitIrqHandler
+                0x0000000000012d70                Uart2IrqHandler
+                0x0000000000012d70                I2sIrqHandler
+                0x0000000000012d70                PendSVHandler
+                0x0000000000012d70                UsageFaultHandler
+                0x0000000000012d70                Uart4IrqHandler
+                0x0000000000012d70                InterruptLookupHandler
+                0x0000000000012d70                BodIrqHandler
+                0x0000000000012d70                SysTickHandler
+                0x0000000000012d70                RtcIrqHandler
+                0x0000000000012d70                Uart0IrqHandler
+                0x0000000000012d70                UsbIrqHandler
+                0x0000000000012d70                AdcIrqHandler
+                0x0000000000012d70                EnetIrqHandler
+                0x0000000000012d70                DmaIrqHandler
+                0x0000000000012d70                Eint1IrqHandler
+                0x0000000000012d70                SvcHandler
+                0x0000000000012d70                GpioIrqHandler
+                0x0000000000012d70                SdioIrqHandler
+                0x0000000000012d70                Pll1IrqHandler
+                0x0000000000012d70                MemManageHandler
+                0x0000000000012d70                Pwm1IrqHandler
+                0x0000000000012d70                Timer0IrqHandler
+                0x0000000000012d70                Uart3IrqHandler
+                0x0000000000012d70                Timer1IrqHandler
+                0x0000000000012d70                Uart1IrqHandler
+                0x0000000000012d70                QeiIrqHandler
+                0x0000000000012d70                Ssp2IrqHandler
+                0x0000000000012d70                Ssp1IrqHandler
+                0x0000000000012d70                Ssp0IrqHandler
+                0x0000000000012d70                UsbactivityIrqHandler
+                0x0000000000012d70                Pll0IrqHandler
+                0x0000000000012d70                CanactivityIrqHandler
+                0x0000000000012d70                NmiHandler
+                0x0000000000012d70                McpwmIrqHandler
+                0x0000000000012d70                WdtIrqHandler
+                0x0000000000012d70                DebugMonHandler
+                0x0000000000012d70                Eint2IrqHandler
+                0x0000000000012d70                Timer3IrqHandler
+                0x0000000000012d70                Eint3IrqHandler
+                0x0000000000012d70                I2c0IrqHandler
+                0x0000000000012d70                Eint0IrqHandler
+                0x0000000000012d70                SpiIrqHandler
  .text._Z11RegisterIsr4IRQnPFvvEbl
-                0x0000000000012c20       0x5c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
-                0x0000000000012c20                RegisterIsr(IRQn, void (*)(), bool, long)
+                0x0000000000012ddc       0x5c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+                0x0000000000012ddc                RegisterIsr(IRQn, void (*)(), bool, long)
  .text.GetRegistersFromStack
-                0x0000000000012c7c       0x78 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
-                0x0000000000012c7c                GetRegistersFromStack
+                0x0000000000012e38       0x78 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+                0x0000000000012e38                GetRegistersFromStack
  .text._Z14FirmwareStdOuti
-                0x0000000000012cf4       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x0000000000012cf4                FirmwareStdOut(int)
- .text._exit    0x0000000000012d30       0x18 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x0000000000012d30                _exit
- .text._getpid  0x0000000000012d48       0x24 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x0000000000012d48                _getpid
- .text._kill    0x0000000000012d6c       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x0000000000012d6c                _kill
+                0x0000000000012eb0       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x0000000000012eb0                FirmwareStdOut(int)
+ .text._exit    0x0000000000012eec       0x18 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x0000000000012eec                _exit
+ .text._getpid  0x0000000000012f04       0x24 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x0000000000012f04                _getpid
+ .text._kill    0x0000000000012f28       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x0000000000012f28                _kill
  .text._putchar
-                0x0000000000012d9c       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x0000000000012d9c                _putchar
- .text.putchar  0x0000000000012dd8       0x38 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x0000000000012dd8                putchar
- .text.puts     0x0000000000012e10       0x60 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x0000000000012e10                puts
+                0x0000000000012f58       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x0000000000012f58                _putchar
+ .text.putchar  0x0000000000012f94       0x38 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x0000000000012f94                putchar
+ .text.puts     0x0000000000012fcc       0x60 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x0000000000012fcc                puts
  .text.__cyg_profile_func_enter
-                0x0000000000012e70       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x0000000000012e70                __cyg_profile_func_enter
+                0x000000000001302c       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x000000000001302c                __cyg_profile_func_enter
  .text.__cyg_profile_func_exit
-                0x0000000000012e98       0x1c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x0000000000012e98                __cyg_profile_func_exit
+                0x0000000000013054       0x1c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x0000000000013054                __cyg_profile_func_exit
  .text._Z13GetStackTracev
-                0x0000000000012eb4       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x0000000000012eb4                GetStackTrace()
+                0x0000000000013070       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x0000000000013070                GetStackTrace()
  .text._Z13GetStackDepthv
-                0x0000000000012edc       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x0000000000012edc                GetStackDepth()
+                0x0000000000013098       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x0000000000013098                GetStackDepth()
  .text.vTaskSwitchContext
-                0x0000000000012f08       0xc8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
-                0x0000000000012f08                vTaskSwitchContext
+                0x00000000000130c4       0xc8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
+                0x00000000000130c4                vTaskSwitchContext
+ *fill*         0x000000000001318c        0x4 ff
  .text.vPortSVCHandler
-                0x0000000000012fd0       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.o
-                0x0000000000012fd0                vPortSVCHandler
- *fill*         0x0000000000012ff8        0x8 ff
+                0x0000000000013190       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.o
+                0x0000000000013190                vPortSVCHandler
+ *fill*         0x00000000000131b8        0x8 ff
  .text.xPortPendSVHandler
-                0x0000000000013000       0x68 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.o
-                0x0000000000013000                xPortPendSVHandler
+                0x00000000000131c0       0x68 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.o
+                0x00000000000131c0                xPortPendSVHandler
  .text._ZL9_out_nullcPvjj
-                0x0000000000013068       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+                0x0000000000013228       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
  .text._ZL9_out_charcPvjj
-                0x0000000000013098       0x44 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+                0x0000000000013258       0x44 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
  .text._ZL7_strlenPKc
-                0x00000000000130dc       0x44 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+                0x000000000001329c       0x44 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
  .text._ZL9_is_digitc
-                0x0000000000013120       0x44 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+                0x00000000000132e0       0x44 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
  .text._ZL5_atoiPPKc
-                0x0000000000013164       0x60 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+                0x0000000000013324       0x60 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
  .text._ZL12_ntoa_formatPFvcPvjjEPcjjS2_jbjjjj
-                0x00000000000131c4      0x25c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+                0x0000000000013384      0x25c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
  .text._ZL10_ntoa_longPFvcPvjjEPcjjmbmjjj
-                0x0000000000013420       0xe4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+                0x00000000000135e0       0xe4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
  .text._ZL15_ntoa_long_longPFvcPvjjEPcjjybyjjj
-                0x0000000000013504       0xf4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+                0x00000000000136c4       0xf4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
  .text._ZL5_ftoaPFvcPvjjEPcjjdjjj
-                0x00000000000135f8      0x438 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+                0x00000000000137b8      0x438 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
  .text._ZL10_vsnprintfPFvcPvjjEPcjPKcSt9__va_list
-                0x0000000000013a30      0x8f4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
- .text.printf   0x0000000000014324       0x4c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
-                0x0000000000014324                printf
+                0x0000000000013bf0      0x8f4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+ .text.printf   0x00000000000144e4       0x4c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+                0x00000000000144e4                printf
  .text._ZN12PinInterfaceC2Ev
-                0x0000000000014370       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014370                PinInterface::PinInterface()
-                0x0000000000014370                PinInterface::PinInterface()
+                0x0000000000014530       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014530                PinInterface::PinInterface()
+                0x0000000000014530                PinInterface::PinInterface()
  .text._ZN3PinC2Ehh
-                0x00000000000143a4       0x58 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000143a4                Pin::Pin(unsigned char, unsigned char)
-                0x00000000000143a4                Pin::Pin(unsigned char, unsigned char)
+                0x0000000000014564       0x58 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014564                Pin::Pin(unsigned char, unsigned char)
+                0x0000000000014564                Pin::Pin(unsigned char, unsigned char)
  .text._ZN13GpioInterfaceC2Ev
-                0x00000000000143fc       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000143fc                GpioInterface::GpioInterface()
-                0x00000000000143fc                GpioInterface::GpioInterface()
+                0x00000000000145bc       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000145bc                GpioInterface::GpioInterface()
+                0x00000000000145bc                GpioInterface::GpioInterface()
  .text._ZN4GpioC2Ehh
-                0x0000000000014430       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014430                Gpio::Gpio(unsigned char, unsigned char)
-                0x0000000000014430                Gpio::Gpio(unsigned char, unsigned char)
+                0x00000000000145f0       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000145f0                Gpio::Gpio(unsigned char, unsigned char)
+                0x00000000000145f0                Gpio::Gpio(unsigned char, unsigned char)
  .text._ZN4Gpio10SetAsInputEv
-                0x00000000000144ac       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000144ac                Gpio::SetAsInput()
+                0x000000000001466c       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x000000000001466c                Gpio::SetAsInput()
  .text._ZN4Gpio11SetAsOutputEv
-                0x0000000000014528       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014528                Gpio::SetAsOutput()
+                0x00000000000146e8       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000146e8                Gpio::SetAsOutput()
  .text._ZN4Gpio12SetDirectionEN13GpioInterface9DirectionE
-                0x00000000000145a4       0x44 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000145a4                Gpio::SetDirection(GpioInterface::Direction)
+                0x0000000000014764       0x44 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014764                Gpio::SetDirection(GpioInterface::Direction)
  .text._ZN4Gpio6ToggleEv
-                0x00000000000145e8       0x6c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000145e8                Gpio::Toggle()
+                0x00000000000147a8       0x6c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000147a8                Gpio::Toggle()
  .text._ZN4Gpio9ReadStateEv
-                0x0000000000014654       0x78 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014654                Gpio::ReadState()
+                0x0000000000014814       0x78 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014814                Gpio::ReadState()
  .text._ZN4Gpio4ReadEv
-                0x00000000000146cc       0x70 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000146cc                Gpio::Read()
+                0x000000000001488c       0x70 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x000000000001488c                Gpio::Read()
  .text._ZN4Gpio6GetPinEv
-                0x000000000001473c       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x000000000001473c                Gpio::GetPin()
+                0x00000000000148fc       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000148fc                Gpio::GetPin()
  .text._ZN4Gpio14ValidPortCheckEv
-                0x0000000000014768       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014768                Gpio::ValidPortCheck()
+                0x0000000000014928       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014928                Gpio::ValidPortCheck()
  .text._ZN4Gpio19SetInterruptRoutineEPFvvE
-                0x00000000000147e4       0x5c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000147e4                Gpio::SetInterruptRoutine(void (*)())
+                0x00000000000149a4       0x5c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000149a4                Gpio::SetInterruptRoutine(void (*)())
  .text._ZN4Gpio21ClearInterruptRoutineEv
-                0x0000000000014840       0x54 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014840                Gpio::ClearInterruptRoutine()
+                0x0000000000014a00       0x54 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014a00                Gpio::ClearInterruptRoutine()
  .text._ZN4util5ValueIN13GpioInterface4EdgeEhEET0_T_
-                0x0000000000014894       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014894                unsigned char util::Value<GpioInterface::Edge, unsigned char>(GpioInterface::Edge)
+                0x0000000000014a54       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014a54                unsigned char util::Value<GpioInterface::Edge, unsigned char>(GpioInterface::Edge)
  .text._ZN4Gpio16SetInterruptEdgeEN13GpioInterface4EdgeE
-                0x00000000000148c4       0x88 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000148c4                Gpio::SetInterruptEdge(GpioInterface::Edge)
+                0x0000000000014a84       0x88 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014a84                Gpio::SetInterruptEdge(GpioInterface::Edge)
  .text._ZN4Gpio18ClearInterruptEdgeEN13GpioInterface4EdgeE
-                0x000000000001494c       0x88 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x000000000001494c                Gpio::ClearInterruptEdge(GpioInterface::Edge)
+                0x0000000000014b0c       0x88 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014b0c                Gpio::ClearInterruptEdge(GpioInterface::Edge)
  .text._ZN4Gpio15AttachInterruptEPFvvEN13GpioInterface4EdgeE
-                0x00000000000149d4       0x48 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000149d4                Gpio::AttachInterrupt(void (*)(), GpioInterface::Edge)
+                0x0000000000014b94       0x48 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014b94                Gpio::AttachInterrupt(void (*)(), GpioInterface::Edge)
  .text._ZN4Gpio15DetachInterruptEv
-                0x0000000000014a1c       0x40 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014a1c                Gpio::DetachInterrupt()
+                0x0000000000014bdc       0x40 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014bdc                Gpio::DetachInterrupt()
  .text._ZN4Gpio13SetEdgeRisingEv
-                0x0000000000014a5c       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014a5c                Gpio::SetEdgeRising()
+                0x0000000000014c1c       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014c1c                Gpio::SetEdgeRising()
  .text._ZN4Gpio14SetEdgeFallingEv
-                0x0000000000014ad8       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014ad8                Gpio::SetEdgeFalling()
+                0x0000000000014c98       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014c98                Gpio::SetEdgeFalling()
  .text._ZN4Gpio15ClearEdgeRisingEv
-                0x0000000000014b54       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014b54                Gpio::ClearEdgeRising()
+                0x0000000000014d14       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014d14                Gpio::ClearEdgeRising()
  .text._ZN4Gpio16ClearEdgeFallingEv
-                0x0000000000014bd0       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014bd0                Gpio::ClearEdgeFalling()
+                0x0000000000014d90       0x7c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014d90                Gpio::ClearEdgeFalling()
  .text._ZN25SystemControllerInterfaceC2Ev
-                0x0000000000014c4c       0x18 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014c4c                SystemControllerInterface::SystemControllerInterface()
-                0x0000000000014c4c                SystemControllerInterface::SystemControllerInterface()
+                0x0000000000014e0c       0x18 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014e0c                SystemControllerInterface::SystemControllerInterface()
+                0x0000000000014e0c                SystemControllerInterface::SystemControllerInterface()
  .text._ZN23Lpc40xxSystemControllerC2Ev
-                0x0000000000014c64       0x24 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014c64                Lpc40xxSystemController::Lpc40xxSystemController()
-                0x0000000000014c64                Lpc40xxSystemController::Lpc40xxSystemController()
+                0x0000000000014e24       0x24 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014e24                Lpc40xxSystemController::Lpc40xxSystemController()
+                0x0000000000014e24                Lpc40xxSystemController::Lpc40xxSystemController()
  .text._ZN12SspInterfaceC2Ev
-                0x0000000000014c88       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014c88                SspInterface::SspInterface()
-                0x0000000000014c88                SspInterface::SspInterface()
+                0x0000000000014e48       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014e48                SspInterface::SspInterface()
+                0x0000000000014e48                SspInterface::SspInterface()
  .text._ZN12PinInterfaceC2ERKS_
-                0x0000000000014cbc       0x38 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014cbc                PinInterface::PinInterface(PinInterface const&)
-                0x0000000000014cbc                PinInterface::PinInterface(PinInterface const&)
+                0x0000000000014e7c       0x38 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014e7c                PinInterface::PinInterface(PinInterface const&)
+                0x0000000000014e7c                PinInterface::PinInterface(PinInterface const&)
  .text._ZN3PinC2ERKS_
-                0x0000000000014cf4       0x54 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014cf4                Pin::Pin(Pin const&)
-                0x0000000000014cf4                Pin::Pin(Pin const&)
+                0x0000000000014eb4       0x54 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014eb4                Pin::Pin(Pin const&)
+                0x0000000000014eb4                Pin::Pin(Pin const&)
  .text._ZN3SspC2ENS_10PeripheralE
-                0x0000000000014d48       0xe4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014d48                Ssp::Ssp(Ssp::Peripheral)
-                0x0000000000014d48                Ssp::Ssp(Ssp::Peripheral)
+                0x0000000000014f08       0xe4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014f08                Ssp::Ssp(Ssp::Peripheral)
+                0x0000000000014f08                Ssp::Ssp(Ssp::Peripheral)
  .text._ZN3Ssp10InitializeEv
-                0x0000000000014e2c       0xe4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014e2c                Ssp::Initialize()
+                0x0000000000014fec       0xe4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000014fec                Ssp::Initialize()
  .text._ZN3Ssp19SetSpiMasterDefaultEv
-                0x0000000000014f10       0x5c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014f10                Ssp::SetSpiMasterDefault()
+                0x00000000000150d0       0x5c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000150d0                Ssp::SetSpiMasterDefault()
  .text._ZN4util5ValueIN12SspInterface8DataSizeEhEET0_T_
-                0x0000000000014f6c       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014f6c                unsigned char util::Value<SspInterface::DataSize, unsigned char>(SspInterface::DataSize)
+                0x000000000001512c       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x000000000001512c                unsigned char util::Value<SspInterface::DataSize, unsigned char>(SspInterface::DataSize)
  .text._ZN4util5ValueIN12SspInterface9FrameModeEhEET0_T_
-                0x0000000000014f9c       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014f9c                unsigned char util::Value<SspInterface::FrameMode, unsigned char>(SspInterface::FrameMode)
+                0x000000000001515c       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x000000000001515c                unsigned char util::Value<SspInterface::FrameMode, unsigned char>(SspInterface::FrameMode)
  .text._ZN4util5ValueIN12SspInterface15MasterSlaveModeEhEET0_T_
-                0x0000000000014fcc       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014fcc                unsigned char util::Value<SspInterface::MasterSlaveMode, unsigned char>(SspInterface::MasterSlaveMode)
+                0x000000000001518c       0x30 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x000000000001518c                unsigned char util::Value<SspInterface::MasterSlaveMode, unsigned char>(SspInterface::MasterSlaveMode)
  .text._ZN3Ssp17SetPeripheralModeEN12SspInterface15MasterSlaveModeENS0_9FrameModeENS0_8DataSizeE
-                0x0000000000014ffc      0x20c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000014ffc                Ssp::SetPeripheralMode(SspInterface::MasterSlaveMode, SspInterface::FrameMode, SspInterface::DataSize)
+                0x00000000000151bc      0x20c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000151bc                Ssp::SetPeripheralMode(SspInterface::MasterSlaveMode, SspInterface::FrameMode, SspInterface::DataSize)
  .text._ZN3Ssp17GetPeripheralModeEv
-                0x0000000000015208      0x160 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000015208                Ssp::GetPeripheralMode()
+                0x00000000000153c8      0x160 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000153c8                Ssp::GetPeripheralMode()
  .text._ZN3Ssp8SetClockEbbhh
-                0x0000000000015368      0x1ec build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000015368                Ssp::SetClock(bool, bool, unsigned char, unsigned char)
+                0x0000000000015528      0x1ec build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000015528                Ssp::SetClock(bool, bool, unsigned char, unsigned char)
  .text._ZN3Ssp8GetClockEv
-                0x0000000000015554      0x184 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000015554                Ssp::GetClock()
+                0x0000000000015714      0x184 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000015714                Ssp::GetClock()
  .text._ZN11SdInterfaceC2Ev
-                0x00000000000156d8       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000156d8                SdInterface::SdInterface()
-                0x00000000000156d8                SdInterface::SdInterface()
+                0x0000000000015898       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000015898                SdInterface::SdInterface()
+                0x0000000000015898                SdInterface::SdInterface()
  .text._ZN2SdC2ENS_13DebugSdCard_tEhhhh
-                0x000000000001570c       0xa0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x000000000001570c                Sd::Sd(Sd::DebugSdCard_t, unsigned char, unsigned char, unsigned char, unsigned char)
-                0x000000000001570c                Sd::Sd(Sd::DebugSdCard_t, unsigned char, unsigned char, unsigned char, unsigned char)
+                0x00000000000158cc       0xa0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000158cc                Sd::Sd(Sd::DebugSdCard_t, unsigned char, unsigned char, unsigned char, unsigned char)
+                0x00000000000158cc                Sd::Sd(Sd::DebugSdCard_t, unsigned char, unsigned char, unsigned char, unsigned char)
  .text._ZN2Sd10InitializeEv
-                0x00000000000157ac       0xb0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000157ac                Sd::Initialize()
+                0x000000000001596c       0xb0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x000000000001596c                Sd::Initialize()
  .text._ZN2Sd5MountEPN11SdInterface10CardInfo_tE
-                0x000000000001585c      0x31c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x000000000001585c                Sd::Mount(SdInterface::CardInfo_t*)
+                0x0000000000015a1c      0x31c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000015a1c                Sd::Mount(SdInterface::CardInfo_t*)
  .text._ZN2Sd6ToBoolEb
-                0x0000000000015b78       0x44 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000015b78                Sd::ToBool(bool)
+                0x0000000000015d38       0x44 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000015d38                Sd::ToBool(bool)
  .text._ZN2Sd15WaitToReadBlockEv
-                0x0000000000015bbc       0x64 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000015bbc                Sd::WaitToReadBlock()
+                0x0000000000015d7c       0x64 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000015d7c                Sd::WaitToReadBlock()
  .text._ZN2Sd13WaitWhileBusyEv
-                0x0000000000015c20       0x50 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000015c20                Sd::WaitWhileBusy()
+                0x0000000000015de0       0x50 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000015de0                Sd::WaitWhileBusy()
  .text._ZN2Sd9ReadBlockEmPhm
-                0x0000000000015c70      0x418 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000015c70                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)
+                0x0000000000015e30      0x418 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000015e30                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)
  .text._ZN2Sd10WriteBlockEmPKhm
-                0x0000000000016088      0x1ac build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000016088                Sd::WriteBlock(unsigned long, unsigned char const*, unsigned long)
+                0x0000000000016248      0x1ac build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000016248                Sd::WriteBlock(unsigned long, unsigned char const*, unsigned long)
  .text._ZN2Sd11DeleteBlockEmm
-                0x0000000000016234      0x120 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000016234                Sd::DeleteBlock(unsigned long, unsigned long)
+                0x00000000000163f4      0x120 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000163f4                Sd::DeleteBlock(unsigned long, unsigned long)
  .text._ZN2Sd7SendCmdEN11SdInterface7CommandEmPhmNS0_9KeepAliveE
-                0x0000000000016354      0x4a0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000016354                Sd::SendCmd(SdInterface::Command, unsigned long, unsigned char*, unsigned long, SdInterface::KeepAlive)
+                0x0000000000016514      0x4a0 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000016514                Sd::SendCmd(SdInterface::Command, unsigned long, unsigned char*, unsigned long, SdInterface::KeepAlive)
  .text._ZN2Sd7Crc7AddEhh
-                0x00000000000167f4       0x48 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000167f4                Sd::Crc7Add(unsigned char, unsigned char)
+                0x00000000000169b4       0x48 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000169b4                Sd::Crc7Add(unsigned char, unsigned char)
  .text._ZN2Sd7GetCrc7EPhh
-                0x000000000001683c       0x70 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x000000000001683c                Sd::GetCrc7(unsigned char*, unsigned char)
+                0x00000000000169fc       0x70 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000169fc                Sd::GetCrc7(unsigned char*, unsigned char)
  .text._ZN2Sd8GetCrc16EPht
-                0x00000000000168ac       0xfc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000168ac                Sd::GetCrc16(unsigned char*, unsigned short)
+                0x0000000000016a6c       0xfc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000016a6c                Sd::GetCrc16(unsigned char*, unsigned short)
  .text._ZN3bit3SetImEET_S1_m
-                0x00000000000169a8       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000169a8                unsigned long bit::Set<unsigned long>(unsigned long, unsigned long)
+                0x0000000000016b68       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000016b68                unsigned long bit::Set<unsigned long>(unsigned long, unsigned long)
  .text._ZN3bit6InsertImhEET_S1_T0_mm
-                0x00000000000169e4       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000169e4                unsigned long bit::Insert<unsigned long, unsigned char>(unsigned long, unsigned char, unsigned long, unsigned long)
+                0x0000000000016ba4       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000016ba4                unsigned long bit::Insert<unsigned long, unsigned char>(unsigned long, unsigned char, unsigned long, unsigned long)
  .text._ZN3bit7ExtractImEET_S1_mm
-                0x0000000000016a58       0x54 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000016a58                unsigned long bit::Extract<unsigned long>(unsigned long, unsigned long, unsigned long)
+                0x0000000000016c18       0x54 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000016c18                unsigned long bit::Extract<unsigned long>(unsigned long, unsigned long, unsigned long)
  .text._ZN3bit6InsertImbEET_S1_T0_mm
-                0x0000000000016aac       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000016aac                unsigned long bit::Insert<unsigned long, bool>(unsigned long, bool, unsigned long, unsigned long)
+                0x0000000000016c6c       0x74 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000016c6c                unsigned long bit::Insert<unsigned long, bool>(unsigned long, bool, unsigned long, unsigned long)
  .text._Z41__static_initialization_and_destruction_0ii
-                0x0000000000016b20       0x50 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000016ce0       0x50 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
  .text._GLOBAL__sub_I_disk_status
-                0x0000000000016b70       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000016d30       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
  .text.__cxa_pure_virtual
-                0x0000000000016b98        0x6 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libstdc++_nano.a(pure.o)
-                0x0000000000016b98                __cxa_pure_virtual
+                0x0000000000016d58        0x6 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libstdc++_nano.a(pure.o)
+                0x0000000000016d58                __cxa_pure_virtual
  .text._ZN10__cxxabiv111__terminateEPFvvE
-                0x0000000000016b9e        0x8 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libstdc++_nano.a(eh_terminate.o)
-                0x0000000000016b9e                __cxxabiv1::__terminate(void (*)())
- *fill*         0x0000000000016ba6        0x2 ff
+                0x0000000000016d5e        0x8 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libstdc++_nano.a(eh_terminate.o)
+                0x0000000000016d5e                __cxxabiv1::__terminate(void (*)())
+ *fill*         0x0000000000016d66        0x2 ff
  .text._ZSt13get_terminatev
-                0x0000000000016ba8       0x10 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libstdc++_nano.a(eh_terminate.o)
-                0x0000000000016ba8                std::get_terminate()
+                0x0000000000016d68       0x10 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libstdc++_nano.a(eh_terminate.o)
+                0x0000000000016d68                std::get_terminate()
  .text._ZSt9terminatev
-                0x0000000000016bb8        0xa /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libstdc++_nano.a(eh_terminate.o)
-                0x0000000000016bb8                std::terminate()
- *fill*         0x0000000000016bc2        0x2 ff
- .text.roundf   0x0000000000016bc4       0x60 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_round.o)
-                0x0000000000016bc4                roundf
- .text          0x0000000000016c24       0xa0 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_truncdfsf2.o)
-                0x0000000000016c24                __aeabi_d2f
-                0x0000000000016c24                __truncdfsf2
- .text          0x0000000000016cc4       0x30 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_aeabi_uldivmod.o)
-                0x0000000000016cc4                __aeabi_uldivmod
- .text          0x0000000000016cf4      0x2cc /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
-                0x0000000000016cf4                __udivmoddi4
- .text          0x0000000000016fc0        0x4 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_dvmd_tls.o)
-                0x0000000000016fc0                __aeabi_ldiv0
-                0x0000000000016fc0                __aeabi_idiv0
- .text.abort    0x0000000000016fc4        0xe /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-abort.o)
-                0x0000000000016fc4                abort
- *fill*         0x0000000000016fd2        0x2 ff
+                0x0000000000016d78        0xa /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libstdc++_nano.a(eh_terminate.o)
+                0x0000000000016d78                std::terminate()
+ *fill*         0x0000000000016d82        0x2 ff
+ .text.roundf   0x0000000000016d84       0x60 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libm.a(lib_a-sf_round.o)
+                0x0000000000016d84                roundf
+ .text          0x0000000000016de4       0xa0 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_arm_truncdfsf2.o)
+                0x0000000000016de4                __aeabi_d2f
+                0x0000000000016de4                __truncdfsf2
+ .text          0x0000000000016e84       0x30 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x0000000000016e84                __aeabi_uldivmod
+ .text          0x0000000000016eb4      0x2cc /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000000000016eb4                __udivmoddi4
+ .text          0x0000000000017180        0x4 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_dvmd_tls.o)
+                0x0000000000017180                __aeabi_ldiv0
+                0x0000000000017180                __aeabi_idiv0
+ .text.abort    0x0000000000017184        0xe /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-abort.o)
+                0x0000000000017184                abort
+ *fill*         0x0000000000017192        0x2 ff
  .text.__libc_init_array
-                0x0000000000016fd4       0x48 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-init.o)
-                0x0000000000016fd4                __libc_init_array
- .text.memset   0x000000000001701c       0x10 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-memset.o)
-                0x000000000001701c                memset
+                0x0000000000017194       0x48 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-init.o)
+                0x0000000000017194                __libc_init_array
+ .text.memset   0x00000000000171dc       0x10 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-memset.o)
+                0x00000000000171dc                memset
  .text._raise_r
-                0x000000000001702c       0x50 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-signal.o)
-                0x000000000001702c                _raise_r
- .text.raise    0x000000000001707c       0x10 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-signal.o)
-                0x000000000001707c                raise
- .text._kill_r  0x000000000001708c       0x24 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-signalr.o)
-                0x000000000001708c                _kill_r
+                0x00000000000171ec       0x50 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-signal.o)
+                0x00000000000171ec                _raise_r
+ .text.raise    0x000000000001723c       0x10 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-signal.o)
+                0x000000000001723c                raise
+ .text._kill_r  0x000000000001724c       0x24 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-signalr.o)
+                0x000000000001724c                _kill_r
  .text._getpid_r
-                0x00000000000170b0        0x4 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-signalr.o)
-                0x00000000000170b0                _getpid_r
+                0x0000000000017270        0x4 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-signalr.o)
+                0x0000000000017270                _getpid_r
  *(.rodata .rodata.* .constdata .constdata.*)
+ .rodata        0x0000000000017274       0x56 build/application/compiled/source/LabGPIO.cpp.o
+ *fill*         0x00000000000172ca        0x2 ff
+ .rodata._ZZN7LabGPIO7IntEdgeENS_4EdgeEE4file
+                0x00000000000172cc        0xc build/application/compiled/source/LabGPIO.cpp.o
+ .rodata._ZZN7LabGPIO7IntEdgeENS_4EdgeEE19__PRETTY_FUNCTION__
+                0x00000000000172d8       0x25 build/application/compiled/source/LabGPIO.cpp.o
+ *fill*         0x00000000000172fd        0x3 ff
  .rodata._ZZ4mainE4file
-                0x00000000000170b4        0x9 build/application/compiled/source/main.cpp.o
- *fill*         0x00000000000170bd        0x3 ff
- .rodata        0x00000000000170c0       0x8a build/application/compiled/source/main.cpp.o
- *fill*         0x000000000001714a        0x2 ff
+                0x0000000000017300        0x9 build/application/compiled/source/main.cpp.o
+ *fill*         0x0000000000017309        0x3 ff
+ .rodata        0x000000000001730c       0x8a build/application/compiled/source/main.cpp.o
+ *fill*         0x0000000000017396        0x2 ff
+ .rodata._ZZ21GpioInterruptCallbackvE4file
+                0x0000000000017398        0x9 build/application/compiled/source/main.cpp.o
+ *fill*         0x00000000000173a1        0x3 ff
  .rodata._ZZ4mainE19__PRETTY_FUNCTION__
-                0x000000000001714c        0xb build/application/compiled/source/main.cpp.o
- *fill*         0x0000000000017157        0x1 ff
- .rodata        0x0000000000017158      0x5af build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
- *fill*         0x0000000000017707        0x1 ff
+                0x00000000000173a4        0xb build/application/compiled/source/main.cpp.o
+ *fill*         0x00000000000173af        0x1 ff
+ .rodata._ZZ21GpioInterruptCallbackvE19__PRETTY_FUNCTION__
+                0x00000000000173b0       0x1d build/application/compiled/source/main.cpp.o
+ *fill*         0x00000000000173cd        0x3 ff
+ .rodata        0x00000000000173d0      0x5af build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+ *fill*         0x000000000001797f        0x1 ff
  .rodata._ZZN23Lpc40xxSystemController25SetPeripheralClockDividerEhE4file
-                0x0000000000017708       0x16 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000017708                Lpc40xxSystemController::SetPeripheralClockDivider(unsigned char)::file
- *fill*         0x000000000001771e        0x2 ff
+                0x0000000000017980       0x16 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017980                Lpc40xxSystemController::SetPeripheralClockDivider(unsigned char)::file
+ *fill*         0x0000000000017996        0x2 ff
  .rodata._ZZN23Lpc40xxSystemController12CalculatePllENS_8PllInputEtE4file
-                0x0000000000017720       0x16 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000017720                Lpc40xxSystemController::CalculatePll(Lpc40xxSystemController::PllInput, unsigned short)::file
- *fill*         0x0000000000017736        0x2 ff
+                0x0000000000017998       0x16 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017998                Lpc40xxSystemController::CalculatePll(Lpc40xxSystemController::PllInput, unsigned short)::file
+ *fill*         0x00000000000179ae        0x2 ff
  .rodata._ZZN23Lpc40xxSystemController12CalculatePllENS_8PllInputEtE4file_0
-                0x0000000000017738       0x16 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000017738                Lpc40xxSystemController::CalculatePll(Lpc40xxSystemController::PllInput, unsigned short)::file
- *fill*         0x000000000001774e        0x2 ff
+                0x00000000000179b0       0x16 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000179b0                Lpc40xxSystemController::CalculatePll(Lpc40xxSystemController::PllInput, unsigned short)::file
+ *fill*         0x00000000000179c6        0x2 ff
  .rodata._ZZN23Lpc40xxSystemController10SetMainPllENS_8PllInputEtE4file
-                0x0000000000017750       0x16 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000017750                Lpc40xxSystemController::SetMainPll(Lpc40xxSystemController::PllInput, unsigned short)::file
- *fill*         0x0000000000017766        0x2 ff
+                0x00000000000179c8       0x16 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000179c8                Lpc40xxSystemController::SetMainPll(Lpc40xxSystemController::PllInput, unsigned short)::file
+ *fill*         0x00000000000179de        0x2 ff
  .rodata._ZZN23Lpc40xxSystemController18SetCpuClockDividerEhE4file
-                0x0000000000017768       0x16 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000017768                Lpc40xxSystemController::SetCpuClockDivider(unsigned char)::file
- *fill*         0x000000000001777e        0x2 ff
+                0x00000000000179e0       0x16 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000179e0                Lpc40xxSystemController::SetCpuClockDivider(unsigned char)::file
+ *fill*         0x00000000000179f6        0x2 ff
  .rodata._ZN5Timer9kPowerbitE
-                0x0000000000017780       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000017780                Timer::kPowerbit
+                0x00000000000179f8       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000000179f8                Timer::kPowerbit
  .rodata._ZN5Timer9kTimerIrqE
-                0x0000000000017790        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000017790                Timer::kTimerIrq
+                0x0000000000017a08        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017a08                Timer::kTimerIrq
  .rodata._ZN5Timer9kTimerIsrE
-                0x0000000000017794       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000017794                Timer::kTimerIsr
+                0x0000000000017a0c       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017a0c                Timer::kTimerIsr
  .rodata._ZZN5Timer10InitializeEmPFvvElE4file
-                0x00000000000177a4        0xa build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000177a4                Timer::Initialize(unsigned long, void (*)(), long)::file
- *fill*         0x00000000000177ae        0x2 ff
+                0x0000000000017a1c        0xa build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017a1c                Timer::Initialize(unsigned long, void (*)(), long)::file
+ *fill*         0x0000000000017a26        0x2 ff
  .rodata._ZN4Uart19kTxUartPortFunctionE
-                0x00000000000177b0        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000177b0                Uart::kTxUartPortFunction
+                0x0000000000017a28        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017a28                Uart::kTxUartPortFunction
  .rodata._ZN4Uart19kRxUartPortFunctionE
-                0x00000000000177b4        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000177b4                Uart::kRxUartPortFunction
+                0x0000000000017a2c        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017a2c                Uart::kRxUartPortFunction
  .rodata._ZN4Uart9kPowerbitE
-                0x00000000000177b8       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000177b8                Uart::kPowerbit
+                0x0000000000017a30       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017a30                Uart::kPowerbit
  .rodata._ZZ12LowLevelInitvE4file
-                0x00000000000177c8        0xc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017a40        0xc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
  .rodata._ZTV4Uart
-                0x00000000000177d4       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000177d4                vtable for Uart
+                0x0000000000017a4c       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017a4c                vtable for Uart
  .rodata._ZTV5Timer
-                0x0000000000017810       0x38 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000017810                vtable for Timer
+                0x0000000000017a88       0x38 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017a88                vtable for Timer
  .rodata._ZTV3Pin
-                0x0000000000017848       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000017848                vtable for Pin
+                0x0000000000017ac0       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017ac0                vtable for Pin
  .rodata._ZTV11SystemTimer
-                0x0000000000017884       0x38 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000000017884                vtable for SystemTimer
+                0x0000000000017afc       0x38 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017afc                vtable for SystemTimer
  .rodata._ZTV23Lpc40xxSystemController
-                0x00000000000178bc       0x24 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000000178bc                vtable for Lpc40xxSystemController
+                0x0000000000017b34       0x24 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017b34                vtable for Lpc40xxSystemController
  .rodata._ZZN23Lpc40xxSystemController25SetPeripheralClockDividerEhE19__PRETTY_FUNCTION__
-                0x00000000000178e0       0x49 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
- *fill*         0x0000000000017929        0x3 ff
+                0x0000000000017b58       0x49 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+ *fill*         0x0000000000017ba1        0x3 ff
  .rodata._ZZN23Lpc40xxSystemController10SetMainPllENS_8PllInputEtE19__PRETTY_FUNCTION__
-                0x000000000001792c       0x5a build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
- *fill*         0x0000000000017986        0x2 ff
+                0x0000000000017ba4       0x5a build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+ *fill*         0x0000000000017bfe        0x2 ff
  .rodata._ZZN23Lpc40xxSystemController12CalculatePllENS_8PllInputEtE19__PRETTY_FUNCTION__
-                0x0000000000017988       0x5c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000000017c00       0x5c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
  .rodata._ZZN23Lpc40xxSystemController18SetCpuClockDividerEhE19__PRETTY_FUNCTION__
-                0x00000000000179e4       0x3a build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
- *fill*         0x0000000000017a1e        0x2 ff
+                0x0000000000017c5c       0x3a build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+ *fill*         0x0000000000017c96        0x2 ff
  .rodata._ZZN5Timer10InitializeEmPFvvElE19__PRETTY_FUNCTION__
-                0x0000000000017a20       0x3e build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
- *fill*         0x0000000000017a5e        0x2 ff
+                0x0000000000017c98       0x3e build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+ *fill*         0x0000000000017cd6        0x2 ff
  .rodata._ZZ12LowLevelInitvE19__PRETTY_FUNCTION__
-                0x0000000000017a60       0x14 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
- .rodata        0x0000000000017a74      0x256 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
- *fill*         0x0000000000017cca        0x2 ff
+                0x0000000000017cd8       0x14 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+ .rodata        0x0000000000017cec      0x256 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+ *fill*         0x0000000000017f42        0x2 ff
  .rodata._ZZ22InterruptLookupHandlerE4file
-                0x0000000000017ccc        0xe build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
- *fill*         0x0000000000017cda        0x2 ff
+                0x0000000000017f44        0xe build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+ *fill*         0x0000000000017f52        0x2 ff
  .rodata._ZZ22InterruptLookupHandlerE19__PRETTY_FUNCTION__
-                0x0000000000017cdc       0x1e build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
- *fill*         0x0000000000017cfa        0x2 ff
+                0x0000000000017f54       0x1e build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+ *fill*         0x0000000000017f72        0x2 ff
  .rodata._ZZL5_ftoaPFvcPvjjEPcjjdjjjE5pow10
-                0x0000000000017cfc       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
- .rodata        0x0000000000017d24      0xc29 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
- *fill*         0x000000000001894d        0x3 ff
+                0x0000000000017f74       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+ .rodata        0x0000000000017f9c      0xc29 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+ *fill*         0x0000000000018bc5        0x3 ff
  .rodata._ZZN4Gpio14ValidPortCheckEvE4file
-                0x0000000000018950        0x9 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018950                Gpio::ValidPortCheck()::file
- *fill*         0x0000000000018959        0x3 ff
+                0x0000000000018bc8        0x9 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018bc8                Gpio::ValidPortCheck()::file
+ *fill*         0x0000000000018bd1        0x3 ff
  .rodata._ZZN4Gpio16SetInterruptEdgeEN13GpioInterface4EdgeEE4file
-                0x000000000001895c        0x9 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x000000000001895c                Gpio::SetInterruptEdge(GpioInterface::Edge)::file
- *fill*         0x0000000000018965        0x3 ff
+                0x0000000000018bd4        0x9 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018bd4                Gpio::SetInterruptEdge(GpioInterface::Edge)::file
+ *fill*         0x0000000000018bdd        0x3 ff
  .rodata._ZZN4Gpio18ClearInterruptEdgeEN13GpioInterface4EdgeEE4file
-                0x0000000000018968        0x9 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018968                Gpio::ClearInterruptEdge(GpioInterface::Edge)::file
- *fill*         0x0000000000018971        0x3 ff
+                0x0000000000018be0        0x9 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018be0                Gpio::ClearInterruptEdge(GpioInterface::Edge)::file
+ *fill*         0x0000000000018be9        0x3 ff
  .rodata._ZN3Ssp10kPinSelectE
-                0x0000000000018974        0x3 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018974                Ssp::kPinSelect
- *fill*         0x0000000000018977        0x1 ff
+                0x0000000000018bec        0x3 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018bec                Ssp::kPinSelect
+ *fill*         0x0000000000018bef        0x1 ff
  .rodata._ZN3Ssp13kSspPinMatrixE
-                0x0000000000018978       0x48 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018978                Ssp::kSspPinMatrix
+                0x0000000000018bf0       0x48 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018bf0                Ssp::kSspPinMatrix
  .rodata._ZN3Ssp9kPowerBitE
-                0x00000000000189c0        0xc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000189c0                Ssp::kPowerBit
+                0x0000000000018c38        0xc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018c38                Ssp::kPowerBit
  .rodata._ZN2Sd10kCrcTable8E
-                0x00000000000189cc      0x100 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000000189cc                Sd::kCrcTable8
+                0x0000000000018c44      0x100 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018c44                Sd::kCrcTable8
  .rodata._ZN2Sd11kCrcTable16E
-                0x0000000000018acc      0x200 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018acc                Sd::kCrcTable16
+                0x0000000000018d44      0x200 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018d44                Sd::kCrcTable16
  .rodata._ZZN2Sd5MountEPN11SdInterface10CardInfo_tEE4file
-                0x0000000000018ccc        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018ccc                Sd::Mount(SdInterface::CardInfo_t*)::file
- *fill*         0x0000000000018cd3        0x1 ff
+                0x0000000000018f44        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f44                Sd::Mount(SdInterface::CardInfo_t*)::file
+ *fill*         0x0000000000018f4b        0x1 ff
  .rodata._ZZN2Sd5MountEPN11SdInterface10CardInfo_tEE4file_0
-                0x0000000000018cd4        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018cd4                Sd::Mount(SdInterface::CardInfo_t*)::file
- *fill*         0x0000000000018cdb        0x1 ff
+                0x0000000000018f4c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f4c                Sd::Mount(SdInterface::CardInfo_t*)::file
+ *fill*         0x0000000000018f53        0x1 ff
  .rodata._ZZN2Sd5MountEPN11SdInterface10CardInfo_tEE4file_1
-                0x0000000000018cdc        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018cdc                Sd::Mount(SdInterface::CardInfo_t*)::file
- *fill*         0x0000000000018ce3        0x1 ff
- .rodata._ZZN2Sd5MountEPN11SdInterface10CardInfo_tEE4file_2
-                0x0000000000018ce4        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018ce4                Sd::Mount(SdInterface::CardInfo_t*)::file
- *fill*         0x0000000000018ceb        0x1 ff
- .rodata._ZZN2Sd9ReadBlockEmPhmE4file
-                0x0000000000018cec        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018cec                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
- *fill*         0x0000000000018cf3        0x1 ff
- .rodata._ZZN2Sd9ReadBlockEmPhmE4file_0
-                0x0000000000018cf4        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018cf4                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
- *fill*         0x0000000000018cfb        0x1 ff
- .rodata._ZZN2Sd9ReadBlockEmPhmE4file_1
-                0x0000000000018cfc        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018cfc                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
- *fill*         0x0000000000018d03        0x1 ff
- .rodata._ZZN2Sd9ReadBlockEmPhmE4file_2
-                0x0000000000018d04        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d04                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
- *fill*         0x0000000000018d0b        0x1 ff
- .rodata._ZZN2Sd9ReadBlockEmPhmE4file_3
-                0x0000000000018d0c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d0c                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
- *fill*         0x0000000000018d13        0x1 ff
- .rodata._ZZN2Sd9ReadBlockEmPhmE4file_4
-                0x0000000000018d14        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d14                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
- *fill*         0x0000000000018d1b        0x1 ff
- .rodata._ZZN2Sd9ReadBlockEmPhmE4file_5
-                0x0000000000018d1c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d1c                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
- *fill*         0x0000000000018d23        0x1 ff
- .rodata._ZZN2Sd9ReadBlockEmPhmE4file_6
-                0x0000000000018d24        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d24                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
- *fill*         0x0000000000018d2b        0x1 ff
- .rodata._ZZN2Sd9ReadBlockEmPhmE4file_7
-                0x0000000000018d2c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d2c                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
- *fill*         0x0000000000018d33        0x1 ff
- .rodata._ZZN2Sd9ReadBlockEmPhmE4file_8
-                0x0000000000018d34        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d34                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
- *fill*         0x0000000000018d3b        0x1 ff
- .rodata._ZZN2Sd9ReadBlockEmPhmE4file_9
-                0x0000000000018d3c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d3c                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
- *fill*         0x0000000000018d43        0x1 ff
- .rodata._ZZN2Sd11DeleteBlockEmmE4file
-                0x0000000000018d44        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d44                Sd::DeleteBlock(unsigned long, unsigned long)::file
- *fill*         0x0000000000018d4b        0x1 ff
- .rodata._ZZN2Sd11DeleteBlockEmmE4file_0
-                0x0000000000018d4c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d4c                Sd::DeleteBlock(unsigned long, unsigned long)::file
- *fill*         0x0000000000018d53        0x1 ff
- .rodata._ZZN2Sd7SendCmdEN11SdInterface7CommandEmPhmNS0_9KeepAliveEE4file
-                0x0000000000018d54        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d54                Sd::SendCmd(SdInterface::Command, unsigned long, unsigned char*, unsigned long, SdInterface::KeepAlive)::file
- *fill*         0x0000000000018d5b        0x1 ff
- .rodata._ZZN2Sd7SendCmdEN11SdInterface7CommandEmPhmNS0_9KeepAliveEE4file_0
-                0x0000000000018d5c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d5c                Sd::SendCmd(SdInterface::Command, unsigned long, unsigned char*, unsigned long, SdInterface::KeepAlive)::file
- *fill*         0x0000000000018d63        0x1 ff
- .rodata._ZTV2Sd
-                0x0000000000018d64       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d64                vtable for Sd
- .rodata._ZTV11SdInterface
-                0x0000000000018d90       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018d90                vtable for SdInterface
- .rodata._ZTV3Ssp
-                0x0000000000018dbc       0x4c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018dbc                vtable for Ssp
- .rodata._ZTV12SspInterface
-                0x0000000000018e08       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018e08                vtable for SspInterface
- .rodata._ZTV25SystemControllerInterface
-                0x0000000000018e30       0x24 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018e30                vtable for SystemControllerInterface
- .rodata._ZTV4Gpio
-                0x0000000000018e54       0x48 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018e54                vtable for Gpio
- .rodata._ZTV13GpioInterface
-                0x0000000000018e9c       0x48 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018e9c                vtable for GpioInterface
- .rodata._ZTV12PinInterface
-                0x0000000000018ee4       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000000018ee4                vtable for PinInterface
- .rodata._ZZN4Gpio18ClearInterruptEdgeEN13GpioInterface4EdgeEE19__PRETTY_FUNCTION__
-                0x0000000000018f20       0x3b build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f54        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f54                Sd::Mount(SdInterface::CardInfo_t*)::file
  *fill*         0x0000000000018f5b        0x1 ff
+ .rodata._ZZN2Sd5MountEPN11SdInterface10CardInfo_tEE4file_2
+                0x0000000000018f5c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f5c                Sd::Mount(SdInterface::CardInfo_t*)::file
+ *fill*         0x0000000000018f63        0x1 ff
+ .rodata._ZZN2Sd9ReadBlockEmPhmE4file
+                0x0000000000018f64        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f64                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
+ *fill*         0x0000000000018f6b        0x1 ff
+ .rodata._ZZN2Sd9ReadBlockEmPhmE4file_0
+                0x0000000000018f6c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f6c                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
+ *fill*         0x0000000000018f73        0x1 ff
+ .rodata._ZZN2Sd9ReadBlockEmPhmE4file_1
+                0x0000000000018f74        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f74                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
+ *fill*         0x0000000000018f7b        0x1 ff
+ .rodata._ZZN2Sd9ReadBlockEmPhmE4file_2
+                0x0000000000018f7c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f7c                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
+ *fill*         0x0000000000018f83        0x1 ff
+ .rodata._ZZN2Sd9ReadBlockEmPhmE4file_3
+                0x0000000000018f84        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f84                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
+ *fill*         0x0000000000018f8b        0x1 ff
+ .rodata._ZZN2Sd9ReadBlockEmPhmE4file_4
+                0x0000000000018f8c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f8c                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
+ *fill*         0x0000000000018f93        0x1 ff
+ .rodata._ZZN2Sd9ReadBlockEmPhmE4file_5
+                0x0000000000018f94        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f94                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
+ *fill*         0x0000000000018f9b        0x1 ff
+ .rodata._ZZN2Sd9ReadBlockEmPhmE4file_6
+                0x0000000000018f9c        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018f9c                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
+ *fill*         0x0000000000018fa3        0x1 ff
+ .rodata._ZZN2Sd9ReadBlockEmPhmE4file_7
+                0x0000000000018fa4        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018fa4                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
+ *fill*         0x0000000000018fab        0x1 ff
+ .rodata._ZZN2Sd9ReadBlockEmPhmE4file_8
+                0x0000000000018fac        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018fac                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
+ *fill*         0x0000000000018fb3        0x1 ff
+ .rodata._ZZN2Sd9ReadBlockEmPhmE4file_9
+                0x0000000000018fb4        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018fb4                Sd::ReadBlock(unsigned long, unsigned char*, unsigned long)::file
+ *fill*         0x0000000000018fbb        0x1 ff
+ .rodata._ZZN2Sd11DeleteBlockEmmE4file
+                0x0000000000018fbc        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018fbc                Sd::DeleteBlock(unsigned long, unsigned long)::file
+ *fill*         0x0000000000018fc3        0x1 ff
+ .rodata._ZZN2Sd11DeleteBlockEmmE4file_0
+                0x0000000000018fc4        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018fc4                Sd::DeleteBlock(unsigned long, unsigned long)::file
+ *fill*         0x0000000000018fcb        0x1 ff
+ .rodata._ZZN2Sd7SendCmdEN11SdInterface7CommandEmPhmNS0_9KeepAliveEE4file
+                0x0000000000018fcc        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018fcc                Sd::SendCmd(SdInterface::Command, unsigned long, unsigned char*, unsigned long, SdInterface::KeepAlive)::file
+ *fill*         0x0000000000018fd3        0x1 ff
+ .rodata._ZZN2Sd7SendCmdEN11SdInterface7CommandEmPhmNS0_9KeepAliveEE4file_0
+                0x0000000000018fd4        0x7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018fd4                Sd::SendCmd(SdInterface::Command, unsigned long, unsigned char*, unsigned long, SdInterface::KeepAlive)::file
+ *fill*         0x0000000000018fdb        0x1 ff
+ .rodata._ZTV2Sd
+                0x0000000000018fdc       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000018fdc                vtable for Sd
+ .rodata._ZTV11SdInterface
+                0x0000000000019008       0x2c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000019008                vtable for SdInterface
+ .rodata._ZTV3Ssp
+                0x0000000000019034       0x4c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000019034                vtable for Ssp
+ .rodata._ZTV12SspInterface
+                0x0000000000019080       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000019080                vtable for SspInterface
+ .rodata._ZTV25SystemControllerInterface
+                0x00000000000190a8       0x24 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000190a8                vtable for SystemControllerInterface
+ .rodata._ZTV4Gpio
+                0x00000000000190cc       0x48 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000190cc                vtable for Gpio
+ .rodata._ZTV13GpioInterface
+                0x0000000000019114       0x48 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000019114                vtable for GpioInterface
+ .rodata._ZTV12PinInterface
+                0x000000000001915c       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x000000000001915c                vtable for PinInterface
+ .rodata._ZZN4Gpio18ClearInterruptEdgeEN13GpioInterface4EdgeEE19__PRETTY_FUNCTION__
+                0x0000000000019198       0x3b build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+ *fill*         0x00000000000191d3        0x1 ff
  .rodata._ZZN4Gpio14ValidPortCheckEvE19__PRETTY_FUNCTION__
-                0x0000000000018f5c       0x1c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000000191d4       0x1c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
  .rodata._ZZN4Gpio16SetInterruptEdgeEN13GpioInterface4EdgeEE19__PRETTY_FUNCTION__
-                0x0000000000018f78       0x39 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
- *fill*         0x0000000000018fb1        0x3 ff
+                0x00000000000191f0       0x39 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+ *fill*         0x0000000000019229        0x3 ff
  .rodata._ZZN2Sd5MountEPN11SdInterface10CardInfo_tEE19__PRETTY_FUNCTION__
-                0x0000000000018fb4       0x31 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
- *fill*         0x0000000000018fe5        0x3 ff
+                0x000000000001922c       0x31 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+ *fill*         0x000000000001925d        0x3 ff
  .rodata._ZZN2Sd9ReadBlockEmPhmE19__PRETTY_FUNCTION__
-                0x0000000000018fe8       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000000019260       0x3c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
  .rodata._ZZN2Sd11DeleteBlockEmmE19__PRETTY_FUNCTION__
-                0x0000000000019024       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x000000000001929c       0x34 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
  .rodata._ZZN2Sd7SendCmdEN11SdInterface7CommandEmPhmNS0_9KeepAliveEE19__PRETTY_FUNCTION__
-                0x0000000000019058       0x69 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
- *fill*         0x00000000000190c1        0x3 ff
+                0x00000000000192d0       0x69 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+ *fill*         0x0000000000019339        0x3 ff
  .rodata.__sf_fake_stderr
-                0x00000000000190c4       0x20 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-findfp.o)
-                0x00000000000190c4                __sf_fake_stderr
+                0x000000000001933c       0x20 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-findfp.o)
+                0x000000000001933c                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x00000000000190e4       0x20 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-findfp.o)
-                0x00000000000190e4                __sf_fake_stdin
+                0x000000000001935c       0x20 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-findfp.o)
+                0x000000000001935c                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x0000000000019104       0x20 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-findfp.o)
-                0x0000000000019104                __sf_fake_stdout
-                0x0000000000019124                . = ALIGN (0x4)
+                0x000000000001937c       0x20 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-findfp.o)
+                0x000000000001937c                __sf_fake_stdout
+                0x000000000001939c                . = ALIGN (0x4)
 
-.glue_7         0x0000000000019124        0x0
- .glue_7        0x0000000000019124        0x0 linker stubs
+.glue_7         0x000000000001939c        0x0
+ .glue_7        0x000000000001939c        0x0 linker stubs
 
-.glue_7t        0x0000000000019124        0x0
- .glue_7t       0x0000000000019124        0x0 linker stubs
+.glue_7t        0x000000000001939c        0x0
+ .glue_7t       0x000000000001939c        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000019124        0x0
- .vfp11_veneer  0x0000000000019124        0x0 linker stubs
+.vfp11_veneer   0x000000000001939c        0x0
+ .vfp11_veneer  0x000000000001939c        0x0 linker stubs
 
-.v4_bx          0x0000000000019124        0x0
- .v4_bx         0x0000000000019124        0x0 linker stubs
+.v4_bx          0x000000000001939c        0x0
+ .v4_bx         0x000000000001939c        0x0 linker stubs
 
-.iplt           0x0000000000019124        0x0
- .iplt          0x0000000000019124        0x0 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.iplt           0x000000000001939c        0x0
+ .iplt          0x000000000001939c        0x0 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000000019124                __exidx_start = .
+                0x000000000001939c                __exidx_start = .
 
-.ARM.exidx      0x0000000000019124        0x8
+.ARM.exidx      0x000000000001939c        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x0000000000019124        0x8 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
-                0x000000000001912c                __exidx_end = .
-                0x000000000001912c                _etext = .
+ .ARM.exidx     0x000000000001939c        0x8 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
+                0x00000000000193a4                __exidx_end = .
+                0x00000000000193a4                _etext = .
 
-.eh_frame       0x000000000001912c        0x0
- .eh_frame      0x000000000001912c        0x0 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.eh_frame       0x00000000000193a4        0x0
+ .eh_frame      0x00000000000193a4        0x0 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.rel.dyn        0x000000000001912c        0x0
- .rel.iplt      0x000000000001912c        0x0 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.rel.dyn        0x00000000000193a4        0x0
+ .rel.iplt      0x00000000000193a4        0x0 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.data_RAM2      0x0000000020000000        0x0 load address 0x000000000001912c
+.data_RAM2      0x0000000020000000        0x0 load address 0x00000000000193a4
  FILL mask 0xff
                 [!provide]                        PROVIDE (__start_data_RAM2, .)
  *(.ramfunc.$RAM2)
@@ -3404,70 +3412,72 @@ LOAD /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../l
                 0x0000000010000000                . = ALIGN (0x4)
                 0x0000000010000000                _end_uninit_RESERVED = .
 
-.data           0x0000000010000000      0x23c load address 0x000000000001912c
+.data           0x0000000010000000      0x264 load address 0x00000000000193a4
  FILL mask 0xff
                 0x0000000010000000                _data = .
  *(vtable)
  *(.ramfunc*)
  *(.data*)
- .data.Uptime   0x0000000010000000        0x4 build/application/compiled/source/main.cpp.o
-                0x0000000010000000                Uptime
+ .data._ZL10interrupts
+                0x0000000010000000       0x28 build/application/compiled/source/LabGPIO.cpp.o
+ .data.Uptime   0x0000000010000028        0x4 build/application/compiled/source/main.cpp.o
+                0x0000000010000028                Uptime
  .data._ZN4Gpio9gpio_portE
-                0x0000000010000004       0x18 build/application/compiled/source/main.cpp.o
-                0x0000000010000004                Gpio::gpio_port
+                0x000000001000002c       0x18 build/application/compiled/source/main.cpp.o
+                0x000000001000002c                Gpio::gpio_port
  .data._ZN3Ssp13ssp_registersE
-                0x000000001000001c        0xc build/application/compiled/source/main.cpp.o
-                0x000000001000001c                Ssp::ssp_registers
+                0x0000000010000044        0xc build/application/compiled/source/main.cpp.o
+                0x0000000010000044                Ssp::ssp_registers
  .data._ZN23Lpc40xxSystemController17system_controllerE
-                0x0000000010000028        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000010000028                Lpc40xxSystemController::system_controller
+                0x0000000010000050        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000010000050                Lpc40xxSystemController::system_controller
  .data._ZN23Lpc40xxSystemController14speed_in_hertzE
-                0x000000001000002c        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x000000001000002c                Lpc40xxSystemController::speed_in_hertz
+                0x0000000010000054        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000010000054                Lpc40xxSystemController::speed_in_hertz
  .data._ZN11SystemTimer8sys_tickE
-                0x0000000010000030        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000010000030                SystemTimer::sys_tick
+                0x0000000010000058        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000010000058                SystemTimer::sys_tick
  .data._ZN3Pin7pin_mapE
-                0x0000000010000034        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000010000034                Pin::pin_map
+                0x000000001000005c        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x000000001000005c                Pin::pin_map
  .data._ZN5Timer12tim_registerE
-                0x0000000010000038       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000010000038                Timer::tim_register
+                0x0000000010000060       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000010000060                Timer::tim_register
  .data._ZN4Uart4uartE
-                0x0000000010000048       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000010000048                Uart::uart
+                0x0000000010000070       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000010000070                Uart::uart
  .data._ZN4Uart5pairsE
-                0x0000000010000058       0x40 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000010000058                Uart::pairs
- .data.uart0    0x0000000010000098       0x14 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000010000098                uart0
+                0x0000000010000080       0x40 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000010000080                Uart::pairs
+ .data.uart0    0x00000000100000c0       0x14 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000100000c0                uart0
  .data._ZN12_GLOBAL__N_112system_timerE
-                0x00000000100000ac        0x8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000100000d4        0x8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
  .data._ZN12_GLOBAL__N_117system_controllerE
-                0x00000000100000b4        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000100000dc        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
  .data._ZN12_GLOBAL__N_16timer0E
-                0x00000000100000b8        0xc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000100000e0        0xc build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
  .data.dynamic_isr_vector_table
-                0x00000000100000c4       0xe4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
-                0x00000000100000c4                dynamic_isr_vector_table
- .data.out      0x00000000100001a8        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x00000000100001a8                out
+                0x00000000100000ec       0xe4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+                0x00000000100000ec                dynamic_isr_vector_table
+ .data.out      0x00000000100001d0        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x00000000100001d0                out
  .data._ZN4Gpio9interruptE
-                0x00000000100001ac       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x00000000100001ac                Gpio::interrupt
+                0x00000000100001d4       0x28 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x00000000100001d4                Gpio::interrupt
  .data._ZN10__cxxabiv119__terminate_handlerE
-                0x00000000100001d4        0x4 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libstdc++_nano.a(eh_term_handler.o)
-                0x00000000100001d4                __cxxabiv1::__terminate_handler
+                0x00000000100001fc        0x4 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libstdc++_nano.a(eh_term_handler.o)
+                0x00000000100001fc                __cxxabiv1::__terminate_handler
  .data._impure_ptr
-                0x00000000100001d8        0x4 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-impure.o)
-                0x00000000100001d8                _impure_ptr
+                0x0000000010000200        0x4 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-impure.o)
+                0x0000000010000200                _impure_ptr
  .data.impure_data
-                0x00000000100001dc       0x60 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-impure.o)
-                0x000000001000023c                . = ALIGN (0x4)
-                0x000000001000023c                _edata = .
+                0x0000000010000204       0x60 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-impure.o)
+                0x0000000010000264                . = ALIGN (0x4)
+                0x0000000010000264                _edata = .
 
-.igot.plt       0x000000001000023c        0x0 load address 0x0000000000019368
- .igot.plt      0x000000001000023c        0x0 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.igot.plt       0x0000000010000264        0x0 load address 0x0000000000019608
+ .igot.plt      0x0000000010000264        0x0 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
 .bss_RAM2       0x0000000020000000        0x0
                 [!provide]                        PROVIDE (__start_bss_RAM2, .)
@@ -3476,59 +3486,59 @@ LOAD /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../l
                 0x0000000020000000                . = ALIGN ((. != 0x0)?0x4:0x1)
                 [!provide]                        PROVIDE (__end_bss_RAM2, .)
 
-.bss            0x0000000010000240      0x46c
-                0x0000000010000240                _bss = .
+.bss            0x0000000010000268      0x46c
+                0x0000000010000268                _bss = .
  *(.bss*)
- .bss           0x0000000010000240       0x1c /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .bss           0x0000000010000268       0x1c /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
  .bss._ZN7LabGPIO11pin_isr_mapE
-                0x000000001000025c      0x100 build/application/compiled/source/LabGPIO.cpp.o
-                0x000000001000025c                LabGPIO::pin_isr_map
- *fill*         0x000000001000035c        0x4 
+                0x0000000010000284      0x100 build/application/compiled/source/LabGPIO.cpp.o
+                0x0000000010000284                LabGPIO::pin_isr_map
+ *fill*         0x0000000010000384        0x4 
  .bss._ZN12_GLOBAL__N_16uptimeE
-                0x0000000010000360        0x8 build/application/compiled/source/main.cpp.o
+                0x0000000010000388        0x8 build/application/compiled/source/main.cpp.o
  .bss._ZN11SystemTimer16system_timer_isrE
-                0x0000000010000368        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x0000000010000368                SystemTimer::system_timer_isr
+                0x0000000010000390        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000010000390                SystemTimer::system_timer_isr
  .bss._ZN5Timer5matchE
-                0x000000001000036c       0x40 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x000000001000036c                Timer::match
+                0x0000000010000394       0x40 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x0000000010000394                Timer::match
  .bss._ZN5Timer14user_timer_isrE
-                0x00000000100003ac       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000100003ac                Timer::user_timer_isr
+                0x00000000100003d4       0x10 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000100003d4                Timer::user_timer_isr
  .bss._ZGVN5Timer5matchE
-                0x00000000100003bc        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
-                0x00000000100003bc                guard variable for Timer::match
+                0x00000000100003e4        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+                0x00000000100003e4                guard variable for Timer::match
  .bss.stack_trace
-                0x00000000100003c0      0x100 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x00000000100003c0                stack_trace
+                0x00000000100003e8      0x100 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x00000000100003e8                stack_trace
  .bss.stack_depth
-                0x00000000100004c0        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
-                0x00000000100004c0                stack_depth
+                0x00000000100004e8        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+                0x00000000100004e8                stack_depth
  .bss.pxCurrentTCB
-                0x00000000100004c4        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
-                0x00000000100004c4                pxCurrentTCB
+                0x00000000100004ec        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
+                0x00000000100004ec                pxCurrentTCB
  .bss.pxReadyTasksLists
-                0x00000000100004c8       0x64 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
+                0x00000000100004f0       0x64 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
  .bss.uxTopReadyPriority
-                0x000000001000052c        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
+                0x0000000010000554        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
  .bss.xYieldPending
-                0x0000000010000530        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
+                0x0000000010000558        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
  .bss.uxSchedulerSuspended
-                0x0000000010000534        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
+                0x000000001000055c        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
  .bss.ulTaskSwitchedInTime
-                0x0000000010000538        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
+                0x0000000010000560        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
  .bss.ulTotalRunTime
-                0x000000001000053c        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
+                0x0000000010000564        0x4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
  .bss._ZN4Gpio17interrupthandlersE
-                0x0000000010000540      0x100 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
-                0x0000000010000540                Gpio::interrupthandlers
+                0x0000000010000568      0x100 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000010000568                Gpio::interrupthandlers
  .bss._ZN12_GLOBAL__N_17sd_cardE
-                0x0000000010000640       0x68 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+                0x0000000010000668       0x68 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
  *(COMMON)
- COMMON         0x00000000100006a8        0x4 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-reent.o)
-                0x00000000100006a8                errno
-                0x00000000100006ac                . = ALIGN (0x4)
-                0x00000000100006ac                _ebss = .
+ COMMON         0x00000000100006d0        0x4 /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg_nano.a(lib_a-reent.o)
+                0x00000000100006d0                errno
+                0x00000000100006d4                . = ALIGN (0x4)
+                0x00000000100006d4                _ebss = .
                 [!provide]                        PROVIDE (end, .)
 
 .noinit_RAM2    0x0000000020000000        0x0
@@ -3536,15 +3546,15 @@ LOAD /mnt/c/SJSU_Dev2/SJSU-Dev2/tools/gcc-arm-none-eabi-7-2017-q4-major/bin/../l
  *(.noinit.$RamPeriph32*)
                 0x0000000020000000                . = ALIGN (0x4)
 
-.noinit         0x00000000100006ac        0x0
-                0x00000000100006ac                _noinit = .
+.noinit         0x00000000100006d4        0x0
+                0x00000000100006d4                _noinit = .
  *(.noinit*)
-                0x00000000100006ac                . = ALIGN (0x4)
-                0x00000000100006ac                _end_noinit = .
-                0x00000000100006ac                PROVIDE (heap, DEFINED (__user_heap_base)?__user_heap_base:.)
+                0x00000000100006d4                . = ALIGN (0x4)
+                0x00000000100006d4                _end_noinit = .
+                0x00000000100006d4                PROVIDE (heap, DEFINED (__user_heap_base)?__user_heap_base:.)
                 0x0000000020008000                PROVIDE (heap_end, __top_RAM2)
                 0x0000000010010000                PROVIDE (StackTop, DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc64 - 0x0))
-                0xffffffffeff829ba                PROVIDE (ValidUserCodeChecksum, (0x0 - ((((((StackTop + (ResetIsr + 0x1)) + (NmiHandler + 0x1)) + (HardFaultHandler + 0x1)) + (DEFINED (MemManageHandler)?MemManageHandler:0x0 + 0x1)) + (DEFINED (BusFaultHandler)?BusFaultHandler:0x0 + 0x1)) + (DEFINED (UsageFaultHandler)?UsageFaultHandler:0x0 + 0x1))))
+                0xffffffffeff8210e                PROVIDE (ValidUserCodeChecksum, (0x0 - ((((((StackTop + (ResetIsr + 0x1)) + (NmiHandler + 0x1)) + (HardFaultHandler + 0x1)) + (DEFINED (MemManageHandler)?MemManageHandler:0x0 + 0x1)) + (DEFINED (BusFaultHandler)?BusFaultHandler:0x0 + 0x1)) + (DEFINED (UsageFaultHandler)?UsageFaultHandler:0x0 + 0x1))))
 OUTPUT(build/application/firmware.elf elf32-littlearm)
 
 .ARM.attributes
@@ -3618,27 +3628,27 @@ OUTPUT(build/application/firmware.elf elf32-littlearm)
  .comment       0x000000000000007e       0x7f build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
  .comment       0x000000000000007e       0x7f build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
 
-.debug_info     0x0000000000000000    0x41a6d
- .debug_info    0x0000000000000000     0x237f build/application/compiled/source/LabGPIO.cpp.o
- .debug_info    0x000000000000237f     0xd8f2 build/application/compiled/source/main.cpp.o
- .debug_info    0x000000000000fc71     0xe97f build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
- .debug_info    0x000000000001e5f0     0x3b3e build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
- .debug_info    0x000000000002212e     0xfda7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
- .debug_info    0x0000000000031ed5     0x24ac build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
- .debug_info    0x0000000000034381      0x2ea build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.o
- .debug_info    0x000000000003466b      0xff4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
- .debug_info    0x000000000003565f     0xc40e build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+.debug_info     0x0000000000000000    0x41a61
+ .debug_info    0x0000000000000000     0x2373 build/application/compiled/source/LabGPIO.cpp.o
+ .debug_info    0x0000000000002373     0xd8f2 build/application/compiled/source/main.cpp.o
+ .debug_info    0x000000000000fc65     0xe97f build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+ .debug_info    0x000000000001e5e4     0x3b3e build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+ .debug_info    0x0000000000022122     0xfda7 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+ .debug_info    0x0000000000031ec9     0x24ac build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
+ .debug_info    0x0000000000034375      0x2ea build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.o
+ .debug_info    0x000000000003465f      0xff4 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+ .debug_info    0x0000000000035653     0xc40e build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
 
-.debug_abbrev   0x0000000000000000     0x498e
- .debug_abbrev  0x0000000000000000      0x59b build/application/compiled/source/LabGPIO.cpp.o
- .debug_abbrev  0x000000000000059b      0xccb build/application/compiled/source/main.cpp.o
- .debug_abbrev  0x0000000000001266      0xe22 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
- .debug_abbrev  0x0000000000002088      0x757 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
- .debug_abbrev  0x00000000000027df      0xd96 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
- .debug_abbrev  0x0000000000003575      0x385 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
- .debug_abbrev  0x00000000000038fa      0x1c8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.o
- .debug_abbrev  0x0000000000003ac2      0x253 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
- .debug_abbrev  0x0000000000003d15      0xc79 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+.debug_abbrev   0x0000000000000000     0x497f
+ .debug_abbrev  0x0000000000000000      0x58c build/application/compiled/source/LabGPIO.cpp.o
+ .debug_abbrev  0x000000000000058c      0xccb build/application/compiled/source/main.cpp.o
+ .debug_abbrev  0x0000000000001257      0xe22 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+ .debug_abbrev  0x0000000000002079      0x757 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+ .debug_abbrev  0x00000000000027d0      0xd96 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+ .debug_abbrev  0x0000000000003566      0x385 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
+ .debug_abbrev  0x00000000000038eb      0x1c8 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.o
+ .debug_abbrev  0x0000000000003ab3      0x253 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+ .debug_abbrev  0x0000000000003d06      0xc79 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
 
 .debug_aranges  0x0000000000000000      0xd20
  .debug_aranges
@@ -3671,16 +3681,16 @@ OUTPUT(build/application/firmware.elf elf32-littlearm)
  .debug_ranges  0x00000000000008a0       0x90 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
  .debug_ranges  0x0000000000000930      0x360 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
 
-.debug_line     0x0000000000000000     0x6976
- .debug_line    0x0000000000000000      0x769 build/application/compiled/source/LabGPIO.cpp.o
- .debug_line    0x0000000000000769      0xbc7 build/application/compiled/source/main.cpp.o
- .debug_line    0x0000000000001330     0x1301 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
- .debug_line    0x0000000000002631      0x6af build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
- .debug_line    0x0000000000002ce0      0xfc6 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
- .debug_line    0x0000000000003ca6      0xdbe build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
- .debug_line    0x0000000000004a64      0x321 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.o
- .debug_line    0x0000000000004d85      0x84c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
- .debug_line    0x00000000000055d1     0x13a5 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
+.debug_line     0x0000000000000000     0x6959
+ .debug_line    0x0000000000000000      0x74b build/application/compiled/source/LabGPIO.cpp.o
+ .debug_line    0x000000000000074b      0xbc8 build/application/compiled/source/main.cpp.o
+ .debug_line    0x0000000000001313     0x1301 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/startup.cpp.o
+ .debug_line    0x0000000000002614      0x6af build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/interrupt.cpp.o
+ .debug_line    0x0000000000002cc3      0xfc6 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.cpp.o
+ .debug_line    0x0000000000003c89      0xdbe build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/tasks.c.o
+ .debug_line    0x0000000000004a47      0x321 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.o
+ .debug_line    0x0000000000004d68      0x84c build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/printf/printf.cpp.o
+ .debug_line    0x00000000000055b4     0x13a5 build/application/compiled//mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/third_party/fatfs/source/diskio.cpp.o
 
 .debug_str      0x0000000000000000    0x1a1bf
  .debug_str     0x0000000000000000     0x1367 build/application/compiled/source/LabGPIO.cpp.o
