@@ -54,6 +54,7 @@ class LabGPIO
   void setInactive(); // make pin inactive resistors
   void setRepeater(); // set resistor to repeat state
   void IntEdge(Edge edge);
+  void ClrEdge(Edge edge);
   // Statically allocated a lookup table matrix here of function pointers 
   // to avoid dynamic allocation.
   // 

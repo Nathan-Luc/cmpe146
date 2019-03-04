@@ -101,24 +101,25 @@ void LabGPIO::setRepeater(){
    pc->pc_repeater(SelPort, SelPin);
   }
  void LabGPIO::AttachInterruptHandler(IsrPointer isr, Edge edge){
+    // attaches the isr to the pin map at selected port and pin
     pin_isr_map[interrupt_port][SelPin]=isr;
-    //printf("%i %i\n",interrupt_port,SelPin);
+    // register the isr to the correct edge type
     IntEdge(edge);
   
  }
  void LabGPIO::GpioInterruptHandler(){
     uint32_t selPin_local;
 
-  
-    if((LPC_GPIOINT->IO0IntStatR) | (LPC_GPIOINT->IO0IntStatF)){
-    selPin_local = __builtin_ctz(LPC_GPIOINT->IO0IntStatR | LPC_GPIOINT->IO0IntStatF);
-    //printf("%i\n",selPin_local);
-    pin_isr_map[0][selPin_local]();
-    LPC_GPIOINT -> IO0IntClr &= ~(1<< selPin_local);
+    //check the status of Port 0 to see if there is an interrupt
+    if((LPC_GPIOINT->IO0IntStatR) | (LPC_GPIOINT->IO0IntStatF)){ 
+    // counts the trailing zeros if there is an interrupt and store it into a local variable
+    selPin_local = __builtin_ctz(LPC_GPIOINT->IO0IntStatR | LPC_GPIOINT->IO0IntStatF); 
+    // calls the function in the pin map
+    pin_isr_map[0][selPin_local]();  
+    // clears the interrupt when done
+    LPC_GPIOINT -> IO0IntClr = (1<< selPin_local); 
     }
     
-   
-  
     if((LPC_GPIOINT->IO2IntStatR) | (LPC_GPIOINT->IO2IntStatF)) {
     selPin_local = __builtin_ctz((LPC_GPIOINT->IO2IntStatR)|(LPC_GPIOINT->IO2IntStatF));
     pin_isr_map[1][selPin_local]();
@@ -155,9 +156,27 @@ void LabGPIO::EnableInterrupts(){
     *interrupts[interrupt_port][3] = (1<<SelPin);
  }
  void LabGPIO::ClrFallingEdge(){
-    *interrupts[interrupt_port][4] = (1<<SelPin);
+    *interrupts[interrupt_port][2] = (1<<SelPin);
  }
  void LabGPIO::ClrRisingEdge(){
-    *interrupts[interrupt_port][3] = (1<<SelPin);
+    *interrupts[interrupt_port][2] = (1<<SelPin);
+ }
+ void LabGPIO::ClrEdge(Edge edge)
+ {
+     switch(edge)
+    {   case Edge::kNone:
+                LOG_INFO("No edge selected");
+                break;
+        case Edge::kRising:
+            ClrRisingEdge();
+            break;
+        case Edge::kFalling:
+            ClrFallingEdge();
+            break;
+        case Edge::kBoth:
+            ClrRisingEdge();
+            ClrFallingEdge();
+            break;   
+    }
  }
  
