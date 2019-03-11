@@ -11,18 +11,18 @@ bool LabSpi::Initialize(uint8_t data_size_select, FrameModes format, uint8_t div
   {
     case 0:
       LPC_SC->PCONP |= (1<<21);
-      //chip_select();
+      chip_deselect();
       chip_set();
       break;
     case 1:
       LPC_SC->PCONP |= (1<<10);
-      //chip_select();
+      chip_deselect();
       chip_set();
       break;
     case 2: 
       //SSP 2
       LPC_SC -> PCONP |= (1<<20);
-      //chip_select();
+      chip_deselect();
       chip_set();
       break;
     
@@ -63,7 +63,7 @@ void LabSpi::chip_select()
       MCE0.SetAsOutput();
       CE0.SetLow();
       MCE0.SetLow();
-      printf("P0_1 is the mirror pin\n");
+      printf("P0_1 is the CE mirror pin\n");
       break;
     }
     case 1:
@@ -74,7 +74,7 @@ void LabSpi::chip_select()
       MCE1.SetAsOutput();
       CE1.SetLow();
       MCE1.SetLow();
-      printf("P0_25 is the mirror pin\n");
+      printf("P0_25 is the CE mirror pin\n");
       break;
     }
     case 2: 
@@ -85,7 +85,7 @@ void LabSpi::chip_select()
       MCE2.SetAsOutput();
       CE2.SetLow();
       MCE2.SetLow();
-      printf("P4_28 is the mirror pin\n");
+      printf("P4_28 is the CE mirror pin\n");
       break;
     }
     }
@@ -166,15 +166,64 @@ uint8_t LabSpi::Transfer(uint8_t send){
     }
     
     }
-void LabSpi::read(){
-    uint16_t data[4];
+void LabSpi::ReadStatus(){
     chip_select();
-    Delay(1000);
+    Transfer(0x05);
+    stat1.byte=Transfer(0xFF);
+    stat2.byte=Transfer(0xFF);
+    printf("Status: %x %x\n",stat1.byte, stat2.byte);
+    chip_deselect();
+
+}
+
+void LabSpi::ReadDevice(){
+    uint8_t data[4];
+    chip_select();
     Transfer(0x9F);
     for(int i =0; i<4; i++)
     {
-    data[i] = static_cast<uint8_t>(Transfer(0x9F));
+    data[i] = (Transfer(0xFF));
     }
     chip_deselect();
     printf("Returned data: %x %x %x %x\n", data[0], data[1], data[2], data[3]);
+}
+void LabSpi::WriteEnable(){
+    chip_select();
+    Transfer(0x06);
+    chip_deselect();
+}
+void LabSpi::WriteDisable(){
+    chip_select();
+    Transfer(0x04);
+    chip_deselect();
+}
+void LabSpi::ReadBytes(){
+    if(stat1.RDY)
+    printf("Ready/Busy Bit is busy\n");
+    else 
+    printf("Read/Busy Bit is ready\n");
+    if(stat1.WEL)
+    printf("Write Enable bit is Enable\n");
+    else 
+    printf("Write Enable bit is not enabled\n");
+    if(stat1.BP0)
+    printf("Memory is protected\n");
+    else 
+    printf("Not protected\n");
+    if(stat1.WPP)   
+    printf("Write Protect is not asserted\n");
+    else 
+    printf("Write Protect asserted\n");
+    if(stat1.EPE)
+    printf("Erase Error dectected\n");
+    else
+    printf("Operation Successful\n");
+    if(stat2.RDY2)
+    printf("Ready/Busy 2 is busy\n");
+    else 
+    printf("Ready/Busy 2 is ready\n");
+    if(stat2.RSTE)
+    printf("Reset command enabled\n");
+    else
+    printf("Reset command disabled\n");
 }

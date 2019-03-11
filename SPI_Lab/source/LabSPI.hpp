@@ -6,21 +6,15 @@
 #include "utility/log.hpp"
 #include "utility/time.hpp"
 #include "LabGPIO.hpp"
+
 class LabSpi
 {
  public:
-    typedef union {
-	uint8_t byte;
-	struct {
-		uint8_t TFE: 1; // Transmit FIFO Empyt. Bit is 1 if the Transmit FIF is empty, 0 if not
-		uint8_t TNF: 1; // Transmit FIFO Not Full. This bit is 0 if the Tx FIFO is full, 1 if not.
-		uint8_t RNE: 1; // Receive FIFO Not Empty. This bit is 0 if the Receive FIFO is empty, 1 if not.
-		uint8_t RFF: 1; //Receive FIFO Full. This bit is 1 if the Receive FIFO is full, 0 if not
-		uint8_t BSY 1;  //Busy. This bit is 0 if the SSPn controller is idle, or 1 if it is currently sending/receiving a frame and/or the Tx FIFO is not empty.
-	} __attribute__((packed));
-    } StatusReg1; //The UM10562 Status Register
-    typedef union{
+     typedef union{
+        struct{
         uint8_t byte;
+        uint8_t byte2;
+        };
         struct {
             uint8_t RDY: 1; //Ready/Busy Status: 0 Ready, 1 Busy
             uint8_t WEL: 1;// Write Enable Latch Status: 0 Not Write Enable, 1 Write Enable
@@ -30,10 +24,19 @@ class LabSpi
             uint8_t EPE: 1;// Erase/Program Error : 0 operation successful, 1 error detected
             uint8_t :    1;// Reserved Bit
             uint8_t BPL: 1;// Block Protection Locked : 0 BP0 bit unlocked(default), BP0 bit locked in current state when WP* asserted.
+            
+            uint8_t RDY2: 1;
+            uint8_t :    1;// Reserved Bit
+            uint8_t :    1;// Reserved Bit
+            uint8_t :    1;// Reserved Bit
+            uint8_t RSTE: 1;
+            uint8_t :    1;// Reserved Bit
+            uint8_t :    1;// Reserved Bit
+            uint8_t :    1;// Reserved Bit
         }__attribute__((packed));
-    }StatusReg2 //Adesto Manual
+    }StatusReg; //Adesto Manual
     enum Peripheral
-    {
+    {   
         kSS0=0,
         kSS1=1,
         kSS2=2,
@@ -74,10 +77,15 @@ class LabSpi
     void chip_select();
     void chip_deselect();
     void chip_set();
-    void read();
- 
+    void ReadDevice();
+    void ReadStatus();
+    void ReadBytes();
+    void WriteEnable();
+    void WriteDisable();
  private:
 	// Fill in as needed  
     uint8_t SpiPort;
     pinconn pc;
+    StatusReg stat1;
+    StatusReg stat2;
 };

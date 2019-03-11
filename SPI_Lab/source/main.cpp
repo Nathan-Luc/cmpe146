@@ -64,7 +64,7 @@ void ReadSignature()
     //       to retrieve its device signature.
     SpiTransfer(0x9F);
     for(int i =0; i<4; i++){
-    data[i] = static_cast<uint8_t>(SpiTransfer(0x9F));
+    data[i] = (SpiTransfer(0x9F));
     
     }
   LOG_INFO("STOP");
@@ -80,7 +80,10 @@ int main()
   
   LabSpi Demo(LabSpi::kSS2);
   Demo.Initialize(8,LabSpi::kSPI, 1, LabSpi::kMaster);
-  Demo.read();
+  Demo.WriteEnable();
+  Demo.ReadStatus();
+  Demo.ReadBytes();
+  Demo.ReadDevice();
   
   //oled_terminal.Initialize();
   //SpiInitialize();
