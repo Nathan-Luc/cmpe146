@@ -231,7 +231,7 @@ void pinconn::ssp_clk(uint8_t port, uint8_t pin){
 }
 void pinconn::ssp_miso(uint8_t port, uint8_t pin){
      clearF4(port,pin);
-     if((port == 0) && (pin == (17|8))) 
+     if((port == 0) && (pin == (8|17))) 
     {
         *pincon[port][pin] |= (0b1<<1);
     }

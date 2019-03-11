@@ -199,31 +199,31 @@ void LabSpi::WriteDisable(){
 }
 void LabSpi::ReadBytes(){
     if(stat1.RDY)
-    printf("Ready/Busy Bit is busy\n");
+    printf("Ready/Busy Bit is busy: %x\n",stat1.RDY);
     else 
-    printf("Read/Busy Bit is ready\n");
+    printf("Read/Busy Bit is ready: %x\n",stat1.RDY);
     if(stat1.WEL)
-    printf("Write Enable bit is Enable\n");
+    printf("Write Enable bit is Enable: %x\n", stat1.WEL);
     else 
-    printf("Write Enable bit is not enabled\n");
+    printf("Write Enable bit is not enabled: %x\n", stat1.WEL);
     if(stat1.BP0)
-    printf("Memory is protected\n");
+    printf("Memory is protected: %x\n",stat1.BP0);
     else 
-    printf("Not protected\n");
+    printf("Not protected: %x\n",stat1.BP0);
     if(stat1.WPP)   
-    printf("Write Protect is not asserted\n");
+    printf("Write Protect is not asserted: %x\n",stat1.WPP);
     else 
-    printf("Write Protect asserted\n");
+    printf("Write Protect asserted: %x\n",stat1.WPP);
     if(stat1.EPE)
-    printf("Erase Error dectected\n");
+    printf("Erase Error dectected: %x\n",stat1.EPE);
     else
-    printf("Operation Successful\n");
+    printf("Operation Successful: %x\n",stat1.EPE);
     if(stat2.RDY2)
-    printf("Ready/Busy 2 is busy\n");
+    printf("Ready/Busy 2 is busy: %x\n",stat2.RDY2);
     else 
-    printf("Ready/Busy 2 is ready\n");
+    printf("Ready/Busy 2 is ready: %x\n",stat2.RDY2);
     if(stat2.RSTE)
-    printf("Reset command enabled\n");
+    printf("Reset command enabled: %x\n",stat2.RSTE);
     else
-    printf("Reset command disabled\n");
+    printf("Reset command disabled: %x\n", stat2.RSTE);
 }
