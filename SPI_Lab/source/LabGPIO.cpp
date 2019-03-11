@@ -88,17 +88,17 @@
    
   }
 void LabGPIO::setPulldown(){ 
-    pc->pc_pulldown(SelPort, SelPin);
+    pc->pulldown(SelPort, SelPin);
 
   }
 void LabGPIO::setPullup(){
-    pc->pc_pullup(SelPort, SelPin);
+    pc->pullup(SelPort, SelPin);
   }
 void LabGPIO::setInactive(){
-    pc->pc_inactive(SelPort, SelPin);
+    pc->inactive(SelPort, SelPin);
   }
 void LabGPIO::setRepeater(){
-   pc->pc_repeater(SelPort, SelPin);
+   pc->repeater(SelPort, SelPin);
   }
  void LabGPIO::AttachInterruptHandler(IsrPointer isr, Edge edge){
     // attaches the isr to the pin map at selected port and pin

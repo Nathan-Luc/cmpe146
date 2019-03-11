@@ -194,21 +194,68 @@
 }
 };
     
-void pinconn::pc_inactive(uint8_t port, uint8_t pin){
+void pinconn::inactive(uint8_t port, uint8_t pin){
     //used to clear bit that controls the resistor
     //can be used independently to deactive resistor
     *pincon[port][pin] &= ~(0b11<<3);
 }
-void pinconn::pc_pullup(uint8_t port, uint8_t pin){
-     pc_inactive(port,pin);
+void pinconn::pullup(uint8_t port, uint8_t pin){
+     inactive(port,pin);
     *pincon[port][pin] |= (0b1<<4); 
 }
-void pinconn::pc_pulldown(uint8_t port, uint8_t pin){
-    pc_inactive(port,pin);
+void pinconn::pulldown(uint8_t port, uint8_t pin){
+   inactive(port,pin);
     *pincon[port][pin] |= (0b1<<3);
 }
-void pinconn::pc_repeater(uint8_t port, uint8_t pin){
-    pc_inactive(port,pin);
-    *pincon[port][pin] &= (0b11<<3); 
-    
+void pinconn::repeater(uint8_t port, uint8_t pin){
+    inactive(port,pin);
+    *pincon[port][pin] |= (0b11<<3); 
+}
+void pinconn::clearF4(uint8_t port, uint8_t pin){
+    *pincon[port][pin] &= ~(0xF<<0);
+}
+void pinconn::ssp_clk(uint8_t port, uint8_t pin){
+    clearF4(port,pin);
+    if((port == 0) && (pin == (7|15))) 
+    {
+        *pincon[port][pin] |= (0b1<<1);
+    }
+    else if((port == 1) && (pin == 0))
+    {
+        *pincon[port][pin] |= (0b100);
+    }
+    else
+    {
+        printf("Not a SSP CLK port");
+    }
+}
+void pinconn::ssp_miso(uint8_t port, uint8_t pin){
+     clearF4(port,pin);
+     if((port == 0) && (pin == (17|8))) 
+    {
+        *pincon[port][pin] |= (0b1<<1);
+    }
+    else if((port == 1) && (pin == 4))
+    {
+        *pincon[port][pin] |= (0b100);
+    }
+    else
+    {
+        printf("Not a MISO port");
+    }
+}
+void pinconn::ssp_mosi(uint8_t port, uint8_t pin){
+     clearF4(port,pin);
+     if((port == 0) && (pin == (9|18))) 
+    {
+        *pincon[port][pin] |= (0b1<<1);
+    }
+    else if((port == 1) && (pin == 1))
+    {
+        *pincon[port][pin] |= (0b100);
+    }
+    else
+    {
+        printf("Not a MOSI port");
+    }
 }

@@ -4,7 +4,7 @@ build/application/compiled/source/LabGPIO.cpp.o: source/LabGPIO.cpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L0_LowLevel/LPC40xx.h \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/macros.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/config.hpp \
- /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/Interrupt_Lab/project_config.hpp \
+ /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/SPI_Lab/project_config.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/log_levels.hpp \
  source/pinconn.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/log.hpp \
@@ -25,7 +25,7 @@ source/LabGPIO.hpp:
 
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/config.hpp:
 
-/mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/Interrupt_Lab/project_config.hpp:
+/mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/SPI_Lab/project_config.hpp:
 
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/log_levels.hpp:
 

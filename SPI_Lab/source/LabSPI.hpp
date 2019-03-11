@@ -1,23 +1,4 @@
-/*
-1)Power: In the PCONP register (Section 3.3.2.2), set bit PCSSP0 to enable SSP0 and
-bit PCSSP1 to enable SSP1.
-Remark: On reset, SSP interfaces 0 and 1 are enabled (PCSSP0/1 = 1), while SSP2
-is disabled (PCSSP2 = 0).
-20 PCSSP2 SSP2 interface power/clock control bit. 0
-21 PCSSP0 SSP0 interface power/clock control bit. 0
 
-2)Pins: Select the SSP pins and pin modes through the relevant IOCON registers
-(Section 7.4.1).
-p1_10 CE SetLow
-P1_04 MISO Input
-P1_0 SCLK Output
-P1_1 MOSI OutPut
-
-3) Initialization: There are two control registers for each of the SSP ports to be
-configured: SSP0CR0 and SSP0CR1 for SSP0, SSP1CR0 and SSP1CR1 for SSP1,
-SSP2CR0 and SSP2CR1 for SSP2. See Section 21.6.1 and Section 21.6.2
-
-*/
 #pragma once 
 #include <cstdint>
 #include "L0_LowLevel/interrupt.hpp"
@@ -25,23 +6,51 @@ SSP2CR0 and SSP2CR1 for SSP2. See Section 21.6.1 and Section 21.6.2
 #include "utility/log.hpp"
 #include "utility/time.hpp"
 #include "LabGPIO.hpp"
-
 class LabSpi
 {
  public:
+    typedef union {
+	uint8_t byte;
+	struct {
+		uint8_t TFE: 1; // Transmit FIFO Empyt. Bit is 1 if the Transmit FIF is empty, 0 if not
+		uint8_t TNF: 1; // Transmit FIFO Not Full. This bit is 0 if the Tx FIFO is full, 1 if not.
+		uint8_t RNE: 1; // Receive FIFO Not Empty. This bit is 0 if the Receive FIFO is empty, 1 if not.
+		uint8_t RFF: 1; //Receive FIFO Full. This bit is 1 if the Receive FIFO is full, 0 if not
+		uint8_t BSY 1;  //Busy. This bit is 0 if the SSPn controller is idle, or 1 if it is currently sending/receiving a frame and/or the Tx FIFO is not empty.
+	} __attribute__((packed));
+    } StatusReg1; //The UM10562 Status Register
+    typedef union{
+        uint8_t byte;
+        struct {
+            uint8_t RDY: 1; //Ready/Busy Status: 0 Ready, 1 Busy
+            uint8_t WEL: 1;// Write Enable Latch Status: 0 Not Write Enable, 1 Write Enable
+            uint8_t BP0: 1;//Block Protection : 0 Entire memory array is unprotected, 1 Memory is protected
+            uint8_t :    1;// Reserved Bit
+            uint8_t WPP: 1;// Write Protect (WP*) Pin Status: 0 WP* is Asserted, 1 WP is not Asserted
+            uint8_t EPE: 1;// Erase/Program Error : 0 operation successful, 1 error detected
+            uint8_t :    1;// Reserved Bit
+            uint8_t BPL: 1;// Block Protection Locked : 0 BP0 bit unlocked(default), BP0 bit locked in current state when WP* asserted.
+        }__attribute__((packed));
+    }StatusReg2 //Adesto Manual
     enum Peripheral
     {
         kSS0=0,
         kSS1=1,
         kSS2=2,
     };
-    enum FrameModes  
+    enum Master_Slave
     {
-        kSPI,
-        kTI,
-        kMicrowire,
+        kMaster,
+        kSlave,
+        
     };
-   
+    enum FrameModes 
+    {
+        kSPI=0 ,
+        kTI=1,
+        kMicrowire=2,
+    };
+    LabSpi(Peripheral SSPn);
     /**
      * 1) Powers on SPPn peripheral
      * 2) Set peripheral clock
@@ -53,7 +62,7 @@ class LabSpi
      *
      * @return true if initialization was successful
      */
-    bool Initialize(uint8_t data_size_select, FrameModes format, uint8_t divide);
+    bool Initialize(uint8_t data_size_select, FrameModes format, uint8_t divide, Master_Slave mode);
 
     /**
      * Transfers a byte via SSP to an external device using the SSP data register.
@@ -62,8 +71,13 @@ class LabSpi
      * @return received byte from external device via SSP data register.
      */
     uint8_t Transfer(uint8_t send);
+    void chip_select();
+    void chip_deselect();
+    void chip_set();
+    void read();
  
  private:
 	// Fill in as needed  
-    
+    uint8_t SpiPort;
+    pinconn pc;
 };
