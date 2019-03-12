@@ -1177,6 +1177,7 @@ bool LabSpi::Initialize(uint8_t data_size_select, FrameModes format, uint8_t div
    10566:	bf00      	nop
     
   }
+ 
   if( mode == kMaster){
    10568:	f89d 3018 	ldrb.w	r3, [sp, #24]
    1056c:	2b00      	cmp	r3, #0
@@ -1230,7 +1231,7 @@ bool LabSpi::Initialize(uint8_t data_size_select, FrameModes format, uint8_t div
    105d4:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
    105d8:	430a      	orrs	r2, r1
    105da:	601a      	str	r2, [r3, #0]
-  SSP[SpiPort]->CPSR |= (divide); // Clock Prescale Register defaulted to 2
+  SSP[SpiPort]->CPSR |= (divide); 
    105dc:	9b01      	ldr	r3, [sp, #4]
    105de:	781b      	ldrb	r3, [r3, #0]
    105e0:	461a      	mov	r2, r3
@@ -1416,7 +1417,7 @@ bool LabSpi::Initialize(uint8_t data_size_select, FrameModes format, uint8_t div
    10766:	4803      	ldr	r0, [pc, #12]	; (10774 <LabSpi::Initialize(unsigned char, LabSpi::FrameModes, unsigned char, LabSpi::Master_Slave)+0x2a0>)
    10768:	f004 ff14 	bl	15594 <__cyg_profile_func_exit>
    1076c:	4623      	mov	r3, r4
-}
+  }
    1076e:	4618      	mov	r0, r3
    10770:	b003      	add	sp, #12
    10772:	bd30      	pop	{r4, r5, pc}
@@ -1425,6 +1426,7 @@ bool LabSpi::Initialize(uint8_t data_size_select, FrameModes format, uint8_t div
    1077c:	10000018 	.word	0x10000018
 
 00010780 <LabSpi::chip_select()>:
+
 void LabSpi::chip_select()
 {
    10780:	b510      	push	{r4, lr}
@@ -1856,7 +1858,7 @@ uint8_t LabSpi::Transfer(uint8_t send){
    10a78:	25ff      	movs	r5, #255	; 0xff
    10a7a:	2400      	movs	r4, #0
    10a7c:	e02b      	b.n	10ad6 <LabSpi::Transfer(unsigned char)+0xaa>
-    while(SSP[SpiPort]->SR & (1<<4)){}
+    while(SSP[SpiPort]->SR & (1<<4)){} //Busy 
    10a7e:	9b01      	ldr	r3, [sp, #4]
    10a80:	781b      	ldrb	r3, [r3, #0]
    10a82:	461a      	mov	r2, r3

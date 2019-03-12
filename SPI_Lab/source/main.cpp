@@ -46,7 +46,7 @@ uint8_t SpiTransfer(uint8_t data_out)
     if(LPC_SSP2->SR &(1<<2))
     {
         
-        return static_cast<uint16_t>(LPC_SSP2->DR);
+        return (LPC_SSP2->DR);
     }
     
 }

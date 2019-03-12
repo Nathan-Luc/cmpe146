@@ -3,6 +3,7 @@ inline static LPC_SSP_TypeDef * SSP[3] = {LPC_SSP0, LPC_SSP1, LPC_SSP2};
 
 LabSpi::LabSpi(Peripheral SSPn){
     SpiPort = SSPn;
+    //Initializer list
 }
 bool LabSpi::Initialize(uint8_t data_size_select, FrameModes format, uint8_t divide, Master_Slave mode)
 {
@@ -27,11 +28,12 @@ bool LabSpi::Initialize(uint8_t data_size_select, FrameModes format, uint8_t div
       break;
     
   }
+ 
   if( mode == kMaster){
   SSP[SpiPort]->CR0 &= ~(0xFFFF<<0);//Clear first 16 bits
   SSP[SpiPort]->CR0 |= (data_size_select-1); // set bit transfer size
   SSP[SpiPort]->CR0 |= (format << 4); // select frame format
-  SSP[SpiPort]->CPSR |= (divide); // Clock Prescale Register defaulted to 2
+  SSP[SpiPort]->CPSR |= (divide); 
   SSP[SpiPort]->CR0 |= (1 << 8); // Serial Clock Rate
   SSP[SpiPort]->CR1 &= ~(0b111 << 0); // Clears CR1 and set to master and normal operation
   SSP[SpiPort]->CR1 |= (0b1<<1); // Enable SSP controller
@@ -50,7 +52,8 @@ bool LabSpi::Initialize(uint8_t data_size_select, FrameModes format, uint8_t div
   }
   else 
       return false;
-}
+  }
+
 void LabSpi::chip_select()
 {
     switch(SpiPort)
@@ -159,7 +162,7 @@ uint8_t LabSpi::Transfer(uint8_t send){
         SSP[SpiPort]->DR = send;
     }
     else return 0xFF;
-    while(SSP[SpiPort]->SR & (1<<4)){}
+    while(SSP[SpiPort]->SR & (1<<4)){} //Busy 
     if(SSP[SpiPort]->SR &(1<<2))
     {
         return SSP[SpiPort]->DR;
