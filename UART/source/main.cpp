@@ -8,14 +8,13 @@
 #include "utility/time.hpp"
 #include "LabGPIO.hpp"
 #include "pinconn.hpp"
-/*#include "L3_Application/oled_terminal.hpp"
-#include "LabSPI.hpp"
-#include "AdestoFlash.hpp"
 #include <FreeRTOS.h>
 #include <task.h>
-#include <semphr.h>*/
-#include "LabUART.hpp"
-/*QueueHandle_t q;
+#include "queue.h"
+#include "L3_Application/oled_terminal.hpp"
+//#include "LabUART.hpp"
+
+/*Part 0*/
 QueueHandle_t Global_Queue_Handle = 0;
 pinconn pc;
 OledTerminal oled_terminal;
@@ -27,27 +26,26 @@ void Uart2Interrupt();
 void InitializeUart2();
 void Uart2Send(char num);
 void Uart_queue();
-void vSendOverUartTask(void * pvParamater);
-*/
-LabUART uart_rx(2);
+
+
+//LabUART uart_rx(2);
+
 int main() 
-{ /*  char hold = '+';
- /* LOG_INFO("Start\n");
-  q= xQueueCreate(10,sizeof(int));
+{   
+  char hold = '+';
+  LOG_INFO("Start\n");
   Global_Queue_Handle = xQueueCreate(10,sizeof(10));
-  xTaskCreate(vReceiveByteOverUartTask,(const char*) "receive", 1024, NULL, 1 , NULL);
-  xTaskCreate(vSendOverUartTask,(const char*) "send", 1024, NULL, 1 , NULL);
+  xTaskCreate(vReceiveByteOverUartTask,(const char*) "receive", 4096, NULL, 1 , NULL);
   oled_terminal.Initialize();
   InitializeUart2();
-  //vTaskStartScheduler();
   Uart2Send(hold);
-  Uart2Receive();*/
-  uart_rx.InitializeUart();
-  xTaskCreate(LabUART::UartReceive, "Uart Rx", 3048, NULL, 5, NULL);
+  Uart2Send(7);
+  Uart2Send(5);
   vTaskStartScheduler();
+ 
   
 }
-/*void InitializeUart2()
+void InitializeUart2()
 {   //Power On
     LPC_SC->PCONP |= (1<<24); 
     LPC_UART2->LCR |= (1<<7);
@@ -71,14 +69,13 @@ int main()
     LPC_UART2->IER |= (1 << 0);
   // Init PINSEL, baud rate, frame size, etc. 
     //NVIC_EnableIRQ(UART2_IRQn);
-    //RegisterIsr(UART2_IRQn, Uart2Interrupt);
-
+    RegisterIsr(UART2_IRQn, Uart2Interrupt);
 }
 
 void Uart2Send(char num)
 {   
     
-    while(!(LPC_UART2->LSR & (1 << 5) ) );
+        while(!(LPC_UART2->LSR & (1 << 5) ) );
         char char_val = 0;
         char char_val2 = 0;
         char_val2 = num;
@@ -87,57 +84,45 @@ void Uart2Send(char num)
         LPC_UART2->THR = char_val;
         else 
         LPC_UART2->THR = char_val2;
-       // char temp =  char_val;
-       
         oled_terminal.printf("Letter sent\n");
+       
    
 }
-
-
-
 void Uart2Receive()
 {   
-    //bool RBR = LPC_UART2->LSR & (1<<0); 
-    //oled_terminal.printf("RBR: %d\n", RBR);
     char array[1];
     array[0]= LPC_UART2->RBR;
     oled_terminal.printf("Data: %c\n",array[0]);
-   
-   //RBR = LPC_UART2->LSR & (1<<0);
-    //oled_terminal.printf("RBR: %d\n", RBR);
+    
 }
 void Uart2Interrupt()
 {
-  int x=0;
-  oled_terminal.printf("In Here");
-  xQueueSendFromISR(q, &x, NULL);
-}
-void vSendOverUartTask(void * pvParamater)
-{
-    int x = 0;
-  while (true)
-  {
-    vTaskDelay(1000);
-     if (xQueueReceive(q,&x, portMAX_DELAY)) 
-    {
-      //Uart2Send();
-      if(!xQueueSend(Global_Queue_Handle,&x,1000))
-      {printf("Did not send\n");
-      }
-    }
-     
-       
-  }
+  char x=0;
+  oled_terminal.printf("In Here\n");
+  x = LPC_UART2->RBR;
   
+  xQueueSendFromISR(Global_Queue_Handle, &x, NULL);
 }
 void vReceiveByteOverUartTask(void * pvParamater)
 {
-    int x;
+  char data = 0;
+  char Rx_x[]={};
+  uint8_t index = 0;
   while (true) 
   {
-    if (xQueueReceive(Global_Queue_Handle,&x, portMAX_DELAY)) 
+    if (xQueueReceive(Global_Queue_Handle,&data, portMAX_DELAY)) 
     {
-      Uart2Receive();
+      //printf("Here in Task\n");
+     // printf("Data : %c\n" , Rx_x);
+      Rx_x[index] = data;
+      index++;
+    }
+    if(index == 3)
+    {
+        for(int i = 0; i<3; i++)
+        {
+            printf("Recieve Data: %c\n",Rx_x[i]);
+        }
     }
   }
-}*/
+}

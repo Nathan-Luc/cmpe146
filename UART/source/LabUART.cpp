@@ -8,14 +8,26 @@ LabUART::LabUART(uint8_t Uart){
 void LabUART::RX_Int(){
     char rx_data;
     rx_data = LPC_UART2->RBR;
-    if(xQueueSendFromISR(Global_Queue_Handle, &rx_data, NULL) == pdTRUE)
+    if(xQueueSendFromISR(Global_Queue_Handle, &rx_data, NULL))
     {
         
     }
     
 }
 void LabUART::InitializeUart(){
-    LPC_SC->PCONP |= (1<<24); 
+    switch(selUart)
+   {
+       case 0:
+       LPC_SC->PCONP |= (1<<24); 
+        pc.uart2_txd(2,8);
+        pc.uart2_rxd(2,9);
+        RegisterIsr(UART2_IRQn,RX_Int);
+       case 1:
+       LPC_SC->PCONP |= (1<<25); 
+        pc.uart3_txd(2,8);
+        pc.uart3_rxd(2,9);
+        RegisterIsr(UART3_IRQn, RX_Int);
+   }
     UART[selUart]->LCR |= (1<<7);
     UART[selUart]->FCR |= (1<<0);
     setBaudrate9600();
@@ -25,19 +37,7 @@ void LabUART::InitializeUart(){
     UART[selUart]->FCR |= (0b11 << 1);
     UART[selUart]->TER |= (0b1<<7);
     UART[selUart]->IER |= (1 << 0);
-   switch(selUart)
-   {
-       case 0:
-        pc.uart2_txd(2,8);
-        pc.uart2_rxd(2,9);
-        NVIC_EnableIRQ(UART2_IRQn);
-        RegisterIsr(UART2_IRQn,RX_Int);
-       case 1:
-        pc.uart3_txd(2,8);
-        pc.uart3_rxd(2,9);
-        NVIC_EnableIRQ(UART3_IRQn);
-        RegisterIsr(UART3_IRQn, RX_Int);
-   }
+   
   }
 void LabUART::setBaudrate9600(){
      const uint32_t baudrate=9600;
@@ -55,9 +55,9 @@ void LabUART::UartSend(char value){
         char_val2 = value;
         char_val = value + '0';
         if(char_val >= '0' && char_val <= '9') 
-        LPC_UART2->THR = char_val;
+        UART[selUart]->THR = char_val;
         else 
-        LPC_UART2->THR = char_val2;
+        UART[selUart]->THR = char_val2;
        
  //       oled_terminal.printf("Letter sent\n");
 }
@@ -69,17 +69,16 @@ void LabUART::UartReceive(){
     uint8_t index=0;
     while(1)
     {
-        if(xQueueReceive(Global_Queue_Handle, &data, portMAX_DELAY) == pdTRUE) //ask about pdPass
+        if(xQueueReceive(Global_Queue_Handle, &data, portMAX_DELAY)) 
         {
             array[index++] = data;
-            //alu_result = ALU(array);
             vTaskDelay(500);
             
         }
         if(index == 3)
         {
             alu_result = ALU(array);
-            oled.printf("Result = %x\n", alu_result);
+            printf("Result = %x\n", alu_result);
         }
     }
     oled.printf("Data: %s\n",array);

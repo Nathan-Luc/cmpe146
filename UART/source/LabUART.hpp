@@ -12,10 +12,11 @@ class LabUART{
         void UartInterrupt();
         void InitializeUart();
         void UartSend(char value);
-        static void UartReceive();
+        void UartReceive();
         void setBaudrate9600();
         int ALU(char *array);
         static void RX_Int();
+     
      private:
      uint8_t selUart;
      pinconn pc;
