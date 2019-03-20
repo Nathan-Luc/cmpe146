@@ -9,18 +9,20 @@ class LabUART{
     public:
       
         LabUART(uint8_t Uart);
-        void UartInterrupt();
-        void InitializeUart();
-        void UartSend(char value);
-        void UartReceive();
-        void setBaudrate9600();
-        int ALU(char *array);
+        static void UartInterrupt();
+        static void InitializeUart();
+        static void UartSend(int data);
+        static uint8_t UartReceive();
+        static void setBaudrate9600();
+        static int ALU(int *array);
         static void RX_Int();
+        static void vReceiveByteOverUartTask(void * pvParamater);
+        static void Uqueue();
      
      private:
-     uint8_t selUart;
-     pinconn pc;
-     OledTerminal oled_terminal;
+    inline static uint8_t selUart;
+     inline static pinconn pc;
+     inline static OledTerminal oled_terminal;
      static QueueHandle_t Global_Queue_Handle;
 
 };

@@ -12,7 +12,7 @@ build/application/compiled/source/main.cpp.o: source/main.cpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/newlib/newlib.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/time.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/utility/status.hpp \
- source/LabGPIO.hpp source/pinconn.hpp \
+ source/LabGPIO.hpp source/pinconn.hpp source/LabUART.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L3_Application/oled_terminal.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L2_HAL/displays/oled/ssd1306.hpp \
  /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L1_Drivers/gpio.hpp \
@@ -54,6 +54,8 @@ build/application/compiled/source/main.cpp.o: source/main.cpp \
 source/LabGPIO.hpp:
 
 source/pinconn.hpp:
+
+source/LabUART.hpp:
 
 /mnt/c/SJSU_Dev2/SJSU-Dev2/firmware/library/L3_Application/oled_terminal.hpp:
 
