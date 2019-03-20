@@ -53,8 +53,8 @@ int main()
   //InitializeUart2();
   EC();
   uart_rx.InitializeUart();
-  uart_rx.UartSend(2);
-  uart_rx.UartSend(5);
+  uart_rx.UartSend(num1);
+  uart_rx.UartSend(num2);
   uart_rx.UartSend(operate);
   vTaskStartScheduler();
   //Uart2Receive();
