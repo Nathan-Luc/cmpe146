@@ -45,7 +45,8 @@ int ALU(int *array);
 
 int main() 
 {   
-  
+  button0.setPullDown();
+  button1.setPullDown();
   LOG_INFO("Start\n");
   //Global_Queue_Handle = xQueueCreate(10,sizeof(10));
   xTaskCreate(LabUART::vReceiveByteOverUartTask,(const char*) "receive", 4096, NULL, 1 , NULL);
@@ -141,7 +142,6 @@ void InitializeUart2()
     //NVIC_EnableIRQ(UART2_IRQn);
     RegisterIsr(UART2_IRQn, Uart2Interrupt);
 }
-
 void Uart2Send(uint8_t data)
 {   
     
