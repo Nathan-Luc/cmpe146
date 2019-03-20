@@ -13,7 +13,7 @@
 #include "queue.h"
 //#include "L3_Application/oled_terminal.hpp"
 #include "LabUART.hpp"
-
+#include "L2_HAL/switches/button.hpp"
 /*Part 0*/
 /*QueueHandle_t Global_Queue_Handle = 0;
 pinconn pc;
@@ -28,24 +28,92 @@ void Uart2Send(uint8_t data);
 void Uart_queue();
 int ALU(int *array);
 */
-LabUART uart_rx(2);
+ int op = 0;
+ int num1 =0;
+ int num2 =0;
+ char plus = '+';
+ char sub = '-';
+ char mult = '*';
+ char operate = 0;
+ void EC();
+ OledTerminal oled;
+  LabGPIO button0(1, 19);
+  LabGPIO button1(1, 15);
+  LabGPIO button2(0, 30);
+  LabGPIO button3(0, 29);
+    LabUART uart_rx(2);
 
 int main() 
 {   
-  char hold = '*';
+  
   LOG_INFO("Start\n");
   //Global_Queue_Handle = xQueueCreate(10,sizeof(10));
   xTaskCreate(LabUART::vReceiveByteOverUartTask,(const char*) "receive", 4096, NULL, 1 , NULL);
-  //oled_terminal.Initialize();
+  oled.Initialize();
   //InitializeUart2();
+  EC();
   uart_rx.InitializeUart();
   uart_rx.UartSend(2);
   uart_rx.UartSend(5);
-  uart_rx.UartSend(hold);
+  uart_rx.UartSend(operate);
   vTaskStartScheduler();
   //Uart2Receive();
   
 }
+void EC(){
+    
+    bool loop = true;
+    while(loop)
+    {
+      if(button0.ReadBool())
+    { 
+        num1++;
+        oled.SetCursor(0,0);
+        oled.printf("%i",num1);
+        Delay(500);
+    }
+  
+   if(button1.ReadBool())
+   {     
+   
+      op++;
+      oled.SetCursor(0,2);
+      switch(op){
+          
+      case 1:
+        operate = plus;
+        oled.printf("%c",operate);
+        break;
+      case 2:
+        operate = sub;
+        oled.printf("%c",operate);
+        break;
+      case 3:
+        operate = mult;
+        oled.printf("%c",operate);
+        break;
+      }
+      
+       Delay(500);
+       op = op%4;
+   }
+       
+   if(button2.ReadBool())
+   {        
+        num2++;
+        oled.SetCursor(0,5);
+        oled.printf("%i",num2);
+        Delay(500);
+   }
+   if(button3.ReadBool())
+   {     
+      
+           loop = false;
+   }
+    }
+    
+}
+
 /*
 void InitializeUart2()
 {   //Power On
