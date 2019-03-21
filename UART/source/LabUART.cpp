@@ -19,8 +19,8 @@ void LabUART::InitializeUart(){
 
        case 1:
         LPC_SC->PCONP |= (1<<25);       //POWER: UM10562- Page 30. Pin 24 for UART2
-        pc.uart3_txd(2,8);              //Pin 2.8 SET for TX
-        pc.uart3_rxd(2,9);              //Pin 2.9 SET for RX
+        pc.uart3_txd(4,28);              //Pin 2.8 SET for TX
+        pc.uart3_rxd(4,29);              //Pin 2.9 SET for RX
         RegisterIsr(UART3_IRQn, RX_Int);
         break;
    }
